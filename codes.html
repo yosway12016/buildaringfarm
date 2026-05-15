@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes | Build A Ring Farm Wiki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #16161e;
+    --bg-hover: #1e1e2a;
+    --border: #252535;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8b8ba0;
+    --text-muted: #5a5a70;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+    --common: #9ca3af; --uncommon: #22c55e; --rare: #3b82f6;
+    --epic: #a855f7; --legendary: #f59e0b; --secret: #ef4444;
+    --prismatic: #ec4899; --divine: #06b6d4; --exotic: #f97316;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.bg-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle {
+    position: absolute; width: 4px; height: 4px;
+    background: var(--accent); border-radius: 50%; opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+    0%,100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    50% { transform: translateY(-50px) translateX(-30px); opacity: 0.2; }
+    75% { transform: translateY(-150px) translateX(20px); opacity: 0.5; }
+}
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+    font-size: 1.4rem; font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.3s; border-radius: 2px;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.main-content { position: relative; z-index: 1; padding-top: 80px; }
+.section {
+    padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;
+}
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+.footer {
+    text-align: center; padding: 3rem 2rem; color: var(--text-muted);
+    border-top: 1px solid var(--border); margin-top: 3rem;
+}
+.back-to-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 1.2rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; z-index: 999; opacity: 0; pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.search-bar {
+    max-width: 500px; margin: 0 auto 2rem;
+    position: relative;
+}
+.search-bar input {
+    width: 100%; padding: 1rem 1.5rem 1rem 3rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--text-primary);
+    font-family: 'Outfit', sans-serif; font-size: 1rem;
+    outline: none; transition: all 0.3s;
+}
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar::before {
+    content: '🔍'; position: absolute; left: 1rem; top: 50%;
+    transform: translateY(-50%); font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .section { padding: 3rem 1rem; }
+    .menu-toggle { display: block; }
+}
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        .codes-container { max-width: 800px; margin: 0 auto; }
+        .code-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 1.5rem;
+            transition: all 0.3s; cursor: pointer;
+        }
+        .code-card:hover {
+            background: var(--bg-hover); border-color: var(--accent);
+            transform: translateX(5px);
+        }
+        .code-icon { font-size: 2rem; min-width: 50px; text-align: center; }
+        .code-content { flex: 1; }
+        .code-text {
+            font-family: 'Space Mono', monospace; font-size: 1.2rem;
+            font-weight: 700; color: var(--accent);
+            margin-bottom: 0.25rem; letter-spacing: 1px;
+        }
+        .code-reward { color: var(--text-secondary); font-size: 0.95rem; }
+        .code-status {
+            padding: 0.4rem 1rem; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .code-status.active { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+        .copy-hint {
+            position: fixed; bottom: 2rem; left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card); border: 1px solid var(--accent);
+            color: var(--text-primary); padding: 1rem 2rem;
+            border-radius: 12px; font-weight: 600;
+            opacity: 0; transition: all 0.3s; z-index: 3000;
+        }
+        .copy-hint.show {
+            transform: translateX(-50%) translateY(0); opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+    <nav class="navbar">
+        <a href="index.html" class="logo">🌾 Build A Ring Farm</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="">Home</a></li>
+            <li><a href="fruits.html" class="">Seeds</a></li>
+            <li><a href="mutations.html" class="">Mutations</a></li>
+            <li><a href="events.html" class="">Events</a></li>
+            <li><a href="rings.html" class="">Rings</a></li>
+            <li><a href="codes.html" class="active">Codes</a></li>
+            <li><a href="howto.html" class="">How-To</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">🎁 Game Codes</h2>
+                <p class="section-subtitle">Click any code to copy it to your clipboard</p>
+            </div>
+            <div class="codes-container">
+                <div class="code-card" onclick="copyCode('100KVISITS')">
+                    <div class="code-icon">⏰</div>
+                    <div class="code-content">
+                        <div class="code-text">100KVISITS</div>
+                        <div class="code-reward">5 Minute Time Skip</div>
+                    </div>
+                    <div class="code-status active">Active</div>
+                </div>
+                <div class="code-card" onclick="copyCode('2KLIKES')">
+                    <div class="code-icon">🌴</div>
+                    <div class="code-content">
+                        <div class="code-text">2KLIKES</div>
+                        <div class="code-reward">Tropical Seed Pack (x1)</div>
+                    </div>
+                    <div class="code-status active">Active</div>
+                </div>
+                <div class="code-card" onclick="copyCode('UPDATE1')">
+                    <div class="code-icon">🧪</div>
+                    <div class="code-content">
+                        <div class="code-text">UPDATE1</div>
+                        <div class="code-reward">Strong Fertilizer (x3)</div>
+                    </div>
+                    <div class="code-status active">Active</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>🌾 Build A Ring Farm Wiki — Last updated May 2026</p>
+    </footer>
+
+    <div class="copy-hint" id="copyHint">✅ Code copied to clipboard!</div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(p);
+        }
+    </script>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <script>
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+    </script>
+
+    <script>
+        function copyCode(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                const hint = document.getElementById('copyHint');
+                hint.classList.add('show');
+                setTimeout(() => hint.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
