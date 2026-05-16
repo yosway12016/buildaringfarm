@@ -69,9 +69,15 @@
         .nav-links { display: flex; gap: 1.5rem; list-style: none; }
         .nav-links a {
             color: var(--text-secondary); text-decoration: none;
-            font-weight: 500; font-size: 0.85rem; transition: color 0.3s;
+            font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
         }
-        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--accent);
+            transition: width 0.3s; border-radius: 2px;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
         .main-content {
             position: relative; z-index: 1;
@@ -762,11 +768,16 @@
     <div class="bg-particles" id="particles"></div>
 
     <nav class="navbar">
-        <a href="#" class="logo">🌾 Calculator</a>
+        <a href="index.html" class="logo">🌾 Build A Ring Farm</a>
         <ul class="nav-links">
-            <li><a href="index.html">Wiki Home</a></li>
-            <li><a href="fruits.html">Seeds</a></li>
-            <li><a href="mutations.html">Mutations</a></li>
+            <li><a href="index.html" class="">Home</a></li>
+            <li><a href="fruits.html" class="">Seeds</a></li>
+            <li><a href="mutations.html" class="">Mutations</a></li>
+            <li><a href="events.html" class="">Events</a></li>
+            <li><a href="rings.html" class="">Rings</a></li>
+            <li><a href="codes.html" class="">Codes</a></li>
+            <li><a href="howto.html" class="">How-To</a></li>
+            <li><a href="calculator.html" class="active">Calculator</a></li>
         </ul>
     </nav>
 
