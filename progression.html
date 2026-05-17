@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build A Ring Farm Progression Guide | Best Seeds & Upgrades</title>
+    <meta name="description" content="Master Build A Ring Farm progression from early seed picks to late-game multipliers.">
+    <link rel="canonical" href="https://buildaring.xyz/progression.html">
+        <meta property="og:type" content="website">
+    <meta property="og:title" content="Build A Ring Farm Progression Guide | Best Seeds & Upgrades">
+    <meta property="og:description" content="Master Build A Ring Farm progression from early seed picks to late-game multipliers.">
+    <meta property="og:image" content="https://buildaring.xyz/social-preview.png">
+    <meta property="og:url" content="https://buildaring.xyz/progression.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build A Ring Farm Progression Guide | Best Seeds & Upgrades">
+    <meta name="twitter:description" content="Master Build A Ring Farm progression from early seed picks to late-game multipliers.">
+    <meta name="twitter:image" content="https://buildaring.xyz/social-preview.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Build A Ring Farm Progression Guide | Best Seeds & Upgrades",
+      "description": "Master Build A Ring Farm progression from early seed picks to late-game multipliers.",
+      "url": "https://buildaring.xyz/progression.html",
+      "image": "https://buildaring.xyz/social-preview.png",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://buildaring.xyz/progression.html"
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #16161e;
+    --bg-hover: #1e1e2a;
+    --border: #252535;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8b8ba0;
+    --text-muted: #5a5a70;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.bg-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+}
+
+.particle {
+    position: absolute; width: 4px; height: 4px;
+    background: var(--accent); border-radius: 50%; opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    50% { transform: translateY(-50px) translateX(-30px); opacity: 0.2; }
+    75% { transform: translateY(-150px) translateX(20px); opacity: 0.5; }
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 80px;
+}
+
+.home-section {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.home-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    pointer-events: none;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.05;
+}
+
+.hero-title .gradient-text {
+    background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 700px;
+    line-height: 1.8;
+}
+
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Shared Navbar CSS (kept consistent with other pages like FAQ) */
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem; font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.3s; border-radius: 2px;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+@media (max-width: 768px) {
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .menu-toggle { display: block; }
+}
+
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.guide-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.card-desc {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.card-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .home-section { padding: 3rem 1rem; }
+    .section { padding: 3rem 1rem; }
+}
+
+@media (max-width: 600px) {
+    .guide-grid { gap: 1.25rem; }
+}
+    </style>
+</head>
+
+<body>
+
+<div class="bg-particles" id="particles"></div>
+<div id="navbar-container"></div>
+
+<main class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1 class="section-title">🚀 Progression Guide</h1>
+            <p class="section-subtitle">Master the best strategies from beginner to endgame.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">🌱 Early Game</h2>
+            <p class="section-subtitle">Build a strong foundation with starter seeds, upgrades, and early income.</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-card">
+                <div class="card-icon">🌿</div>
+                <div class="card-title">Best starter seeds</div>
+                <div class="card-desc">Choose the right early seeds to boost income and unlock stronger options fast.</div>
+                <ul class="card-list">
+                    <li>Prioritize high value starter seeds for quick cash.</li>
+                    <li>Upgrade the first seed to level 20 quickly.</li>
+                    <li>Use early money to unlock better plots and tools.</li>
+                    <li>Keep seed purchases efficient to avoid overspending.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🛠️</div>
+                <div class="card-title">First upgrades</div>
+                <div class="card-desc">Invest in the upgrades that matter most during the first few ring cycles.</div>
+                <ul class="card-list">
+                    <li>Upgrade plot level to unlock more planting space.</li>
+                    <li>Raise Saw Yield and Sprinkler Power early.</li>
+                    <li>Focus on a single seed type for better momentum.</li>
+                    <li>Avoid spending on expensive late-game seeds too soon.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">💰</div>
+                <div class="card-title">Beginner money strategy</div>
+                <div class="card-desc">Build a steady cash flow before jumping into higher-cost upgrades.</div>
+                <ul class="card-list">
+                    <li>Keep enough reserves for key upgrades.</li>
+                    <li>Reinvest early earnings into seed and ring upgrades.</li>
+                    <li>Buy only what increases income reliably.</li>
+                    <li>Use cheap seeds to fuel the first growth cycles.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🚫</div>
+                <div class="card-title">Avoid wasting money</div>
+                <div class="card-desc">Stay efficient with every early game purchase.</div>
+                <ul class="card-list">
+                    <li>Don't overspend on rare seeds too early.</li>
+                    <li>Skip upgrades that don't improve income yet.</li>
+                    <li>Keep your plot upgrades aligned with seed output.</li>
+                    <li>Hold money until the next high-value upgrade is available.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">⚡ Mid Game</h2>
+            <p class="section-subtitle">Transition into mutation farming and ring upgrades with confidence.</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-card">
+                <div class="card-icon">🧬</div>
+                <div class="card-title">Mutation farming</div>
+                <div class="card-desc">Use mutation chances and events to upgrade your seed lineup efficiently.</div>
+                <ul class="card-list">
+                    <li>Stack mutation sources for better chance rates.</li>
+                    <li>Keep your main ring loaded with mutation-ready seeds.</li>
+                    <li>Use events to push rarity upgrades faster.</li>
+                    <li>Shift to higher value seeds when income is stable.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">💍</div>
+                <div class="card-title">Ring upgrades</div>
+                <div class="card-desc">Upgrade ring power while balancing seed quality and cash flow.</div>
+                <ul class="card-list">
+                    <li>Upgrade outer rings first for the best multiplier gains.</li>
+                    <li>Keep middle and inner rings profitable during the transition.</li>
+                    <li>Use higher rarity seeds once your ring output is steady.</li>
+                    <li>Optimize ring placement for event bonuses.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">📈</div>
+                <div class="card-title">Event optimization</div>
+                <div class="card-desc">Leverage events to speed up progression and maximize returns.</div>
+                <ul class="card-list">
+                    <li>Plan your farm around active mutation events.</li>
+                    <li>Use event boosts to farm rarer seeds.</li>
+                    <li>Keep enough cash for event-driven upgrades.</li>
+                    <li>Focus events on your highest value rings.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Income scaling</div>
+                <div class="card-desc">Turn mid-game profits into a strong late-game economy.</div>
+                <ul class="card-list">
+                    <li>Reinvest income into seed and ring improvements.</li>
+                    <li>Grow your farm steadily instead of chasing spikes.</li>
+                    <li>Keep your core rings consistently upgraded.</li>
+                    <li>Track which upgrades increase output the most.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">🌈 Late Game</h2>
+            <p class="section-subtitle">Maximize exotic farming and high multiplier setups.</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-card">
+                <div class="card-icon">✨</div>
+                <div class="card-title">Exotic farming</div>
+                <div class="card-desc">Build a late-game setup that scales with your highest multiplier seeds.</div>
+                <ul class="card-list">
+                    <li>Shift to exotic seeds once your economy supports them.</li>
+                    <li>Keep outer rings full of the highest reward crops.</li>
+                    <li>Upgrade exotic seeds in bulk for exponential returns.</li>
+                    <li>Use event timing to harvest peak value.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🌈</div>
+                <div class="card-title">Rainbow mutations</div>
+                <div class="card-desc">Hone your mutation strategy to unlock the best rainbow seed combinations.</div>
+                <ul class="card-list">
+                    <li>Keep mutation sources active across multiple rings.</li>
+                    <li>Use rainbow mutations for the biggest multiplier jumps.</li>
+                    <li>Balance rarity and income for consistent progress.</li>
+                    <li>Stack high-multiplier seeds in your strongest rings.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🏗️</div>
+                <div class="card-title">High multiplier setups</div>
+                <div class="card-desc">Build setups that take full advantage of ring and seed multipliers.</div>
+                <ul class="card-list">
+                    <li>Combine the strongest seeds with the best ring multipliers.</li>
+                    <li>Focus on output rather than rare seed collection alone.</li>
+                    <li>Use late-game upgrades to keep income scaling smoothly.</li>
+                    <li>Fine-tune your farm layout for multiplier efficiency.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🔧</div>
+                <div class="card-title">Endgame optimization</div>
+                <div class="card-desc">Refine every part of your farm for maximum late-game performance.</div>
+                <ul class="card-list">
+                    <li>Use the fastest growing high-value seeds first.</li>
+                    <li>Upgrade only what improves your yield curve.</li>
+                    <li>Keep event synergy focused on your best seeds.</li>
+                    <li>Use excess resources to accelerate the final build.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">💡 Pro Tips</h2>
+            <p class="section-subtitle">Fine-tune your farm with efficient layouts, AFK growth, and stacking tactics.</p>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-card">
+                <div class="card-icon">🛌</div>
+                <div class="card-title">Best AFK methods</div>
+                <div class="card-desc">Let your farm earn while you're away with the right setup.</div>
+                <ul class="card-list">
+                    <li>Choose stable seed combinations for AFK income.</li>
+                    <li>Keep upgrades balanced to avoid downtime.</li>
+                    <li>Use ring placement to maximize passive gains.</li>
+                    <li>Keep a steady income buffer before logging off.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🧩</div>
+                <div class="card-title">Layout optimization</div>
+                <div class="card-desc">Refine your farm layout for the smoothest progression path.</div>
+                <ul class="card-list">
+                    <li>Keep your strongest rings filled first.</li>
+                    <li>Group upgrades around mutation hubs.</li>
+                    <li>Use efficient spacing for seed variety when needed.</li>
+                    <li>Plan crop placement by ring multiplier impact.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">⚖️</div>
+                <div class="card-title">Mutation stacking</div>
+                <div class="card-desc">Combine mutations and event effects to push rarer seeds faster.</div>
+                <ul class="card-list">
+                    <li>Stack mutation chances across rings and events.</li>
+                    <li>Use the strongest seeds for mutation focus.</li>
+                    <li>Keep event timing aligned with your farming cycles.</li>
+                    <li>Use mutation boosts as a key progression lever.</li>
+                </ul>
+            </div>
+            <div class="guide-card">
+                <div class="card-icon">🏁</div>
+                <div class="card-title">Efficient grinding</div>
+                <div class="card-desc">Stay efficient with every upgrade and avoid wasted resources.</div>
+                <ul class="card-list">
+                    <li>Only buy seeds when they improve income.</li>
+                    <li>Focus upgrades that unlock new value first.</li>
+                    <li>Avoid chasing expensive seeds too early.</li>
+                    <li>Make every crystal and coin count toward progression.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="footer-container"></div>
+
+<script>
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = Math.random() * 100 + '%';
+        p.style.animationDelay = Math.random() * 15 + 's';
+        p.style.animationDuration = (10 + Math.random() * 10) + 's';
+        particlesContainer.appendChild(p);
+    }
+</script>
+<script src="js/components.js"></script>
+</body>
+</html>

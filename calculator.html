@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build A Ring Farm Calculator | Profit & Mutation Calculator</title>
+    <meta name="description" content="Calculate ring profit, mutation odds, and the best seed setups in Build A Ring Farm Roblox.">
+    <link rel="canonical" href="https://buildaring.xyz/calculator.html">
+        <meta property="og:type" content="website">
+    <meta property="og:title" content="Build A Ring Farm Calculator | Profit & Mutation Calculator">
+    <meta property="og:description" content="Calculate ring profit, mutation odds, and the best seed setups in Build A Ring Farm Roblox.">
+    <meta property="og:image" content="https://buildaring.xyz/social-preview.png">
+    <meta property="og:url" content="https://buildaring.xyz/calculator.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build A Ring Farm Calculator | Profit & Mutation Calculator">
+    <meta name="twitter:description" content="Calculate ring profit, mutation odds, and the best seed setups in Build A Ring Farm Roblox.">
+    <meta name="twitter:image" content="https://buildaring.xyz/social-preview.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Build A Ring Farm Calculator | Profit & Mutation Calculator",
+      "url": "https://buildaring.xyz/calculator.html",
+      "description": "Calculate ring profit, mutation odds, and the best seed setups in Build A Ring Farm Roblox.",
+      "image": "https://buildaring.xyz/social-preview.png"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #16161e;
+            --bg-hover: #1e1e2a;
+            --border: #252535;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8b8ba0;
+            --text-muted: #5a5a70;
+            --accent: #7c3aed;
+            --accent-glow: rgba(124, 58, 237, 0.3);
+            --accent-secondary: #ec4899;
+            --void: #8b5cf6;
+            --void-glow: rgba(139, 92, 246, 0.4);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --exotic: #f97316;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bg-particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+            background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.04) 0%, transparent 40%);
+        }
+        .particle {
+            position: absolute; width: 3px; height: 3px;
+            background: var(--accent); border-radius: 50%; opacity: 0;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            50% { transform: translateY(50vh) scale(1); opacity: 0.2; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) scale(0); opacity: 0; }
+        }
+
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(10,10,15,0.9); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-size: 1.3rem; font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--accent);
+            transition: width 0.3s; border-radius: 2px;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+        .main-content {
+            position: relative; z-index: 1;
+            padding-top: 80px; max-width: 1200px; margin: 0 auto;
+            padding-left: 2rem; padding-right: 2rem;
+        }
+
+        .hero {
+            text-align: center; padding: 3rem 0 2rem;
+        }
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+            background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; margin-bottom: 0.5rem;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary); font-size: 1.1rem;
+            max-width: 500px; margin: 0 auto;
+        }
+
+        .calc-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem; margin-bottom: 3rem;
+        }
+        @media (max-width: 900px) {
+            .calc-container { grid-template-columns: 1fr; }
+        }
+
+        .calc-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .calc-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #7c3aed, #ec4899, #f59e0b);
+        }
+        .calc-card h2 {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-label {
+            display: block; font-size: 0.85rem; font-weight: 600;
+            color: var(--text-secondary); margin-bottom: 0.5rem;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* Rarity Tabs */
+        .rarity-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .rarity-tab {
+            padding: 0.5rem 1rem;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .rarity-tab:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+        .rarity-tab.active {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            border-color: var(--text-primary);
+        }
+
+        /* Seed Grid */
+        .seed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.75rem;
+            max-height: 220px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+        .seed-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.75rem 0.5rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .seed-card:hover {
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+        }
+        .seed-card.selected {
+            border-color: var(--accent);
+            background: rgba(124, 58, 237, 0.1);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+        }
+        .seed-card .seed-emoji { font-size: 1.8rem; margin-bottom: 0.25rem; }
+        .seed-card .seed-name { font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); }
+        .seed-card.selected .seed-name { color: var(--text-primary); }
+
+        /* Seed Info */
+        .seed-info-bar {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .seed-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+        }
+        .seed-badge .badge-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+        }
+        .seed-badge.exotic { color: var(--exotic); }
+        .seed-badge.exotic .badge-dot { background: var(--exotic); }
+
+        /* Level & Saw Yield Input Styling */
+        .level-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .level-input-box {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .level-input-box input[type="number"] {
+            width: 100px;
+            padding: 0.6rem 0.75rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s;
+            -moz-appearance: textfield;
+        }
+        .level-input-box input[type="number"]::-webkit-outer-spin-button,
+        .level-input-box input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .level-input-box input[type="number"]:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+        }
+        .level-max-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+        .level-slider-wrapper { flex: 1; }
+
+        /* Saw Yield specific styling */
+        .saw-input-box input[type="number"] {
+            width: 110px;
+            color: var(--warning);
+        }
+        .saw-input-box input[type="number"]:focus {
+            border-color: var(--warning);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        input[type="range"].saw-slider {
+            background: linear-gradient(90deg, rgba(245,158,11,0.3), rgba(245,158,11,0.6));
+        }
+        input[type="range"].saw-slider::-webkit-slider-thumb {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
+        input[type="range"].saw-slider::-moz-range-thumb {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
+
+        /* Sprinkler specific styling */
+        .sprinkler-input-box input[type="number"] {
+            width: 110px;
+            color: #3b82f6;
+        }
+        .sprinkler-input-box input[type="number"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        input[type="range"].sprinkler-slider {
+            background: linear-gradient(90deg, rgba(59,130,246,0.3), rgba(59,130,246,0.6));
+        }
+        input[type="range"].sprinkler-slider::-webkit-slider-thumb {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        input[type="range"].sprinkler-slider::-moz-range-thumb {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--bg-hover);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            cursor: pointer;
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+            transition: transform 0.2s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            cursor: pointer;
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+        }
+        .level-range-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.25rem;
+        }
+        .level-range-labels span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Ring Selection */
+        .ring-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        .ring-option {
+            position: relative;
+            cursor: pointer;
+        }
+        .ring-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .ring-label {
+            display: block;
+            padding: 1rem 0.5rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .ring-option input:checked + .ring-label {
+            border-color: var(--accent);
+            background: rgba(124, 58, 237, 0.1);
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+        }
+        .ring-label .ring-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+        .ring-label .ring-name { font-weight: 600; font-size: 0.9rem; }
+        .ring-label .ring-multi {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .ring-option input:checked + .ring-label .ring-multi {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Mutation Selection */
+        .mutation-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        /* Robux Multiplier Options */
+        .robux-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+        .robux-option {
+            position: relative;
+            cursor: pointer;
+        }
+        .robux-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .robux-label {
+            display: block;
+            padding: 0.75rem 0.5rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .robux-option input:checked + .robux-label {
+            border-color: #06b6d4;
+            background: rgba(6, 182, 212, 0.1);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+        }
+        .robux-label .robux-icon { font-size: 1.2rem; margin-bottom: 0.15rem; }
+        .robux-label .robux-name { font-weight: 600; font-size: 0.8rem; }
+        .robux-label .robux-multi {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .robux-option input:checked + .robux-label .robux-multi {
+            color: #06b6d4;
+            font-weight: 700;
+        }
+        .mutation-option {
+            position: relative;
+            cursor: pointer;
+        }
+        .mutation-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .mutation-label {
+            display: block;
+            padding: 0.875rem 0.5rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .mutation-option input:checked + .mutation-label {
+            border-color: var(--accent-secondary);
+            background: rgba(236, 72, 153, 0.1);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.15);
+        }
+        .mutation-label .mut-icon { font-size: 1.3rem; margin-bottom: 0.25rem; }
+        .mutation-label .mut-name { font-weight: 600; font-size: 0.8rem; }
+        .mutation-label .mut-multi {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .mutation-option input:checked + .mutation-label .mut-multi {
+            color: var(--accent-secondary);
+            font-weight: 700;
+        }
+
+        /* Time Selection */
+        .time-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+        .time-option {
+            position: relative;
+            cursor: pointer;
+        }
+        .time-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .time-label {
+            display: block;
+            padding: 0.75rem 0.5rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .time-option input:checked + .time-label {
+            border-color: var(--success);
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+        }
+
+        /* Plant Slider */
+        .plant-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .plant-input-box {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .plant-input-box input[type="number"] {
+            width: 80px;
+            padding: 0.6rem 0.75rem;
+            background: var(--bg-hover);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--success);
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s;
+            -moz-appearance: textfield;
+        }
+        .plant-input-box input[type="number"]::-webkit-outer-spin-button,
+        .plant-input-box input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .plant-input-box input[type="number"]:focus {
+            border-color: var(--success);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        }
+        .plant-max-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--success);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+        input[type="range"].plant-slider {
+            background: linear-gradient(90deg, rgba(34,197,94,0.3), rgba(34,197,94,0.6));
+        }
+        input[type="range"].plant-slider::-webkit-slider-thumb {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+        }
+        input[type="range"].plant-slider::-moz-range-thumb {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+        }
+
+        /* Results Card */
+        .results-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .results-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #22c55e, #f59e0b, #ef4444);
+        }
+
+        .result-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .result-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .result-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+        .result-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e8e8f0, #8b8ba0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .result-value.highlight {
+            background: linear-gradient(135deg, #22c55e, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.2rem;
+        }
+        .result-detail {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .detail-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .detail-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Breakdown Table */
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .breakdown-table th,
+        .breakdown-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .breakdown-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border);
+        }
+        .breakdown-table td {
+            border-bottom: 1px solid rgba(37, 37, 53, 0.5);
+            font-family: 'Space Mono', monospace;
+        }
+        .breakdown-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--success);
+            font-size: 1.1rem;
+        }
+
+        /* Info Card */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .info-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--bg-hover);
+            border-radius: 10px;
+        }
+        .info-icon { font-size: 1.2rem; }
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-name { font-weight: 600; font-size: 0.85rem; }
+        .info-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.1); }
+            50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.2); }
+        }
+        .calc-card, .results-card {
+            animation: pulse-glow 4s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content { padding-left: 1rem; padding-right: 1rem; }
+            .ring-options, .mutation-options { grid-template-columns: repeat(2, 1fr); }
+            .robux-options { grid-template-columns: repeat(3, 1fr); }
+            .time-options { grid-template-columns: repeat(2, 1fr); }
+            .result-value { font-size: 1.4rem; }
+            .result-value.highlight { font-size: 1.7rem; }
+            .level-input-wrapper, .plant-input-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+            }
+            .level-input-box, .plant-input-box, .saw-input-box {
+                display: flex;
+                justify-content: center;
+            }
+            .rarity-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 0.5rem;
+            }
+            .seed-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+        .seed-grid::-webkit-scrollbar { width: 6px; }
+        .seed-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1 class="hero-title">Build A Ring Farm Calculator</h1>
+            <p class="hero-subtitle">
+                Calculate exact earnings: $/unit × Mutation × Placement × (Saw + Sprinkler) × 25/1748 × Robux
+            </p>
+        </section>
+
+        <div class="calc-container">
+            <!-- Input Card -->
+            <div class="calc-card">
+                <h2>⚙️ Configuration</h2>
+
+                <!-- Seed Selector -->
+                <div class="input-group">
+                    <span class="input-label">Select Seed</span>
+
+                    <div class="rarity-tabs" id="rarityTabs">
+                        <div class="rarity-tab active" data-rarity="all">All</div>
+                        <div class="rarity-tab" data-rarity="common">Common</div>
+                        <div class="rarity-tab" data-rarity="uncommon">Uncommon</div>
+                        <div class="rarity-tab" data-rarity="rare">Rare</div>
+                        <div class="rarity-tab" data-rarity="epic">Epic</div>
+                        <div class="rarity-tab" data-rarity="legendary">Legendary</div>
+                        <div class="rarity-tab" data-rarity="secret">Secret</div>
+                        <div class="rarity-tab" data-rarity="prismatic">Prismatic</div>
+                        <div class="rarity-tab" data-rarity="divine">Divine</div>
+                        <div class="rarity-tab" data-rarity="exotic">Exotic</div>
+                    </div>
+
+                    <div class="seed-grid" id="seedGrid"></div>
+
+                    <div class="seed-info-bar" id="seedInfo">
+                        <span class="seed-badge exotic"><span class="badge-dot"></span>Exotic</span>
+                        <span class="seed-badge">Base: $720K</span>
+                    </div>
+                </div>
+
+                <!-- Seed Level -->
+                <div class="input-group">
+                    <span class="input-label">Seed Level</span>
+                    <div class="level-input-wrapper">
+                        <div class="level-input-box">
+                            <input type="number" id="levelInput" min="1" max="100" value="1">
+                            <span class="level-max-badge">MAX 100</span>
+                        </div>
+                        <div class="level-slider-wrapper">
+                            <input type="range" id="levelSlider" min="1" max="100" value="1" step="1">
+                            <div class="level-range-labels">
+                                <span>1</span>
+                                <span>25</span>
+                                <span>50</span>
+                                <span>75</span>
+                                <span>100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saw Yield Level -->
+                <div class="input-group">
+                    <span class="input-label">Saw Yield Level</span>
+                    <div class="level-input-wrapper">
+                        <div class="level-input-box saw-input-box">
+                            <input type="number" id="sawInput" min="1" max="9999" value="1">
+                            <span class="level-max-badge" style="background:var(--warning);">∞</span>
+                        </div>
+                        <div class="level-slider-wrapper">
+                            <input type="range" id="sawSlider" class="saw-slider" min="1" max="100" value="1" step="1">
+                            <div class="level-range-labels">
+                                <span>1</span>
+                                <span>25</span>
+                                <span>50</span>
+                                <span>75</span>
+                                <span>100+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sprinkler Level -->
+                <div class="input-group">
+                    <span class="input-label">Sprinkler Level</span>
+                    <div class="level-input-wrapper">
+                        <div class="level-input-box sprinkler-input-box">
+                            <input type="number" id="sprinklerInput" min="1" max="9999" value="1">
+                            <span class="level-max-badge" style="background:#3b82f6;">∞</span>
+                        </div>
+                        <div class="level-slider-wrapper">
+                            <input type="range" id="sprinklerSlider" class="sprinkler-slider" min="1" max="100" value="1" step="1">
+                            <div class="level-range-labels">
+                                <span>1</span>
+                                <span>25</span>
+                                <span>50</span>
+                                <span>75</span>
+                                <span>100+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ring (for reference only, not in calculation) -->
+                <div class="input-group">
+                    <span class="input-label">Ring Placement</span>
+                    <div class="ring-options">
+                        <label class="ring-option">
+                            <input type="radio" name="ring" value="inner" checked>
+                            <span class="ring-label">
+                                <div class="ring-icon">💍</div>
+                                <div class="ring-name">Inner</div>
+                                <div class="ring-multi">7x</div>
+                            </span>
+                        </label>
+                        <label class="ring-option">
+                            <input type="radio" name="ring" value="middle">
+                            <span class="ring-label">
+                                <div class="ring-icon">⭕</div>
+                                <div class="ring-name">Middle</div>
+                                <div class="ring-multi">13x</div>
+                            </span>
+                        </label>
+                        <label class="ring-option">
+                            <input type="radio" name="ring" value="outer">
+                            <span class="ring-label">
+                                <div class="ring-icon">🌐</div>
+                                <div class="ring-name">Outer</div>
+                                <div class="ring-multi">19x</div>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Mutation -->
+                <div class="input-group">
+                    <span class="input-label">Mutation</span>
+                    <div class="mutation-options">
+                        <label class="mutation-option">
+                            <input type="radio" name="mutation" value="none" checked>
+                            <span class="mutation-label">
+                                <div class="mut-icon">🌱</div>
+                                <div class="mut-name">None</div>
+                                <div class="mut-multi">1x</div>
+                            </span>
+                        </label>
+                        <label class="mutation-option">
+                            <input type="radio" name="mutation" value="wet">
+                            <span class="mutation-label">
+                                <div class="mut-icon">💧</div>
+                                <div class="mut-name">Wet</div>
+                                <div class="mut-multi">1.35x</div>
+                            </span>
+                        </label>
+                        <label class="mutation-option">
+                            <input type="radio" name="mutation" value="frozen">
+                            <span class="mutation-label">
+                                <div class="mut-icon">❄️</div>
+                                <div class="mut-name">Frozen</div>
+                                <div class="mut-multi">1.75x</div>
+                            </span>
+                        </label>
+                        <label class="mutation-option">
+                            <input type="radio" name="mutation" value="void">
+                            <span class="mutation-label">
+                                <div class="mut-icon">🌑</div>
+                                <div class="mut-name">Void</div>
+                                <div class="mut-multi">2.25x</div>
+                            </span>
+                        </label>
+                        <label class="mutation-option">
+                            <input type="radio" name="mutation" value="radioactive">
+                            <span class="mutation-label">
+                                <div class="mut-icon">☢️</div>
+                                <div class="mut-name">Radio</div>
+                                <div class="mut-multi">3x</div>
+                            </span>
+                        </label>
+                        <label class="mutation-option">
+                            <input type="radio" name="mutation" value="rainbow">
+                            <span class="mutation-label">
+                                <div class="mut-icon">🌈</div>
+                                <div class="mut-name">Rainbow</div>
+                                <div class="mut-multi">5x</div>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Time Period -->
+                <div class="input-group">
+                    <span class="input-label">Time Period</span>
+                    <div class="time-options">
+                        <label class="time-option">
+                            <input type="radio" name="time" value="3.5" checked>
+                            <span class="time-label">1 Harvest<br><small style="opacity:0.6;font-size:0.7rem">3.5 min</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="7">
+                            <span class="time-label">2 Harvests<br><small style="opacity:0.6;font-size:0.7rem">7 min</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="14">
+                            <span class="time-label">4 Harvests<br><small style="opacity:0.6;font-size:0.7rem">14 min</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="21">
+                            <span class="time-label">6 Harvests<br><small style="opacity:0.6;font-size:0.7rem">21 min</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="35">
+                            <span class="time-label">10 Harvests<br><small style="opacity:0.6;font-size:0.7rem">35 min</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="70">
+                            <span class="time-label">20 Harvests<br><small style="opacity:0.6;font-size:0.7rem">1h 10m</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="105">
+                            <span class="time-label">30 Harvests<br><small style="opacity:0.6;font-size:0.7rem">1h 45m</small></span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time" value="210">
+                            <span class="time-label">60 Harvests<br><small style="opacity:0.6;font-size:0.7rem">3h 30m</small></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Plant Count Slider -->
+                <div class="input-group">
+                    <span class="input-label">Number of Plants</span>
+                    <div class="plant-input-wrapper">
+                        <div class="plant-input-box">
+                            <input type="number" id="plantInput" min="1" max="60" value="1">
+                            <span class="plant-max-badge">MAX 60</span>
+                        </div>
+                        <div class="level-slider-wrapper">
+                            <input type="range" id="plantSlider" class="plant-slider" min="1" max="60" value="1" step="1">
+                            <div class="level-range-labels">
+                                <span>1</span>
+                                <span>15</span>
+                                <span>30</span>
+                                <span>45</span>
+                                <span>60</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Robux Multiplier -->
+                <div class="input-group">
+                    <span class="input-label">Robux Multiplier</span>
+                    <div class="robux-options">
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="1" checked>
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">None</div>
+                                <div class="robux-multi">1x</div>
+                            </span>
+                        </label>
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="2">
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">×2</div>
+                                <div class="robux-multi">2x</div>
+                            </span>
+                        </label>
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="4">
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">×4</div>
+                                <div class="robux-multi">4x</div>
+                            </span>
+                        </label>
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="6">
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">×6</div>
+                                <div class="robux-multi">6x</div>
+                            </span>
+                        </label>
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="8">
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">×8</div>
+                                <div class="robux-multi">8x</div>
+                            </span>
+                        </label>
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="10">
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">×10</div>
+                                <div class="robux-multi">10x</div>
+                            </span>
+                        </label>
+                        <label class="robux-option">
+                            <input type="radio" name="robux" value="12">
+                            <span class="robux-label">
+                                <div class="robux-icon">💎</div>
+                                <div class="robux-name">×12</div>
+                                <div class="robux-multi">12x</div>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Card -->
+            <div class="results-card">
+                <h2>💰 Earnings</h2>
+
+                <div class="result-section">
+                    <div class="result-label">Unit Value (Base × Mutation)</div>
+                    <div class="result-value" id="baseMoney">$720,000</div>
+                    <div class="result-detail">
+                        <div class="detail-item">
+                            <span class="detail-label">Seed</span>
+                            <span class="detail-value" id="detailSeed">Void Fruit</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Level</span>
+                            <span class="detail-value" id="detailLevel">1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <div class="result-label">Per Plant (Per Harvest)</div>
+                    <div class="result-value highlight" id="perPlant">$720,000</div>
+                    <div class="result-detail">
+                        <div class="detail-item">
+                            <span class="detail-label">Placement</span>
+                            <span class="detail-value" id="detailPlacement">Inner (7x)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Saw Yield</span>
+                            <span class="detail-value" id="detailSaw">× 1</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Mutation</span>
+                            <span class="detail-value" id="detailMutation">None (1x)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Sprinkler</span>
+                            <span class="detail-value" id="detailSprinkler">None (1x)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Robux Multi</span>
+                            <span class="detail-value" id="detailRobux">None (1x)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <div class="result-label">Total Earnings (<span id="timeLabel">1 minute</span>)</div>
+                    <div class="result-value highlight" id="totalEarnings">$720,000</div>
+                    <div class="result-detail">
+                        <div class="detail-item">
+                            <span class="detail-label">Plants</span>
+                            <span class="detail-value" id="detailPlants">1</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Harvests</span>
+                            <span class="detail-value" id="detailHarvests">~1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breakdown -->
+                <div style="margin-top: 1rem;">
+                    <div class="result-label">Calculation Breakdown</div>
+                    <table class="breakdown-table">
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Base Money/Unit</td>
+                                <td id="breakBase">$720,000</td>
+                            </tr>
+                            <tr>
+                                <td>Base Money/Unit</td>
+                                <td id="breakBase">$720,000</td>
+                            </tr>
+                            <tr>
+                                <td>Mutation Multiplier</td>
+                                <td id="breakMutation">× 1</td>
+                            </tr>
+                            <tr>
+                                <td>Unit Value (Base × Mut)</td>
+                                <td id="breakUnit">$720,000</td>
+                            </tr>
+                            <tr>
+                                <td>Placement Multiplier</td>
+                                <td id="breakPlacement">× 7</td>
+                            </tr>
+                            <tr>
+                                <td>Saw + Sprinkler</td>
+                                <td id="breakSawSprinkler">1 + 1 = 2</td>
+                            </tr>
+                            <tr>
+                                <td>Constant Factor</td>
+                                <td id="breakConstant">× 25/1748</td>
+                            </tr>
+                            <tr>
+                                <td>Robux Multiplier</td>
+                                <td id="breakRobux">× 1</td>
+                            </tr>
+                            <tr>
+                                <td>Per Plant</td>
+                                <td id="breakPerPlant">$720,000</td>
+                            </tr>
+                            <tr>
+                                <td>Total (<span id="breakTime">1 min</span>)</td>
+                                <td id="breakTotal">$720,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reference Info -->
+        <div class="info-card">
+            <h3>📊 Quick Reference</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-icon">💍</span>
+                    <div class="info-text">
+                        <span class="info-name">Inner Ring</span>
+                        <span class="info-value">7x Multiplier</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">⭕</span>
+                    <div class="info-text">
+                        <span class="info-name">Middle Ring</span>
+                        <span class="info-value">13x Multiplier</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🌐</span>
+                    <div class="info-text">
+                        <span class="info-name">Outer Ring</span>
+                        <span class="info-value">19x Multiplier</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🌑</span>
+                    <div class="info-text">
+                        <span class="info-name">Void Mutation</span>
+                        <span class="info-value">2.25x (Blackhole Event)</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🌈</span>
+                    <div class="info-text">
+                        <span class="info-name">Rainbow Mutation</span>
+                        <span class="info-value">5x (Galaxy Event)</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🚿</span>
+                    <div class="info-text">
+                        <span class="info-name">Sprinkler</span>
+                        <span class="info-value">77x Max Multiplier</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">💎</span>
+                    <div class="info-text">
+                        <span class="info-name">Robux Multiplier</span>
+                        <span class="info-value">×2 / ×4 / ×6 / ×8 / ×10 / ×12</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📈</span>
+                    <div class="info-text">
+                        <span class="info-name">Void Fruit</span>
+                        <span class="info-value">Exotic — $720K Base</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🌶️</span>
+                    <div class="info-text">
+                        <span class="info-name">Pepper</span>
+                        <span class="info-value">Rare — $560K Base</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════
+        // SEED DATABASE — Void Fruit + Pepper
+        // Formula: baseMoney and growthRate per seed. Some seeds can override harvestTime or disallow mutations.
+        // ═══════════════════════════════════════════════════════════
+
+        const SEED_DATABASE = {
+            void_fruit: {
+                id: 'void_fruit',
+                name: 'Void Fruit',
+                icon: '🌑',
+                rarity: 'exotic',
+                baseMoney: 720000,
+                growthRate: 1.25,
+                maxLevel: 100,
+                harvestTime: 210,
+                allowMutation: true,
+                description: 'The ultimate exotic seed with massive scaling. Grows from 0% to 100% in 3 minutes 30 seconds.'
+            },
+            pepper: {
+                id: 'pepper',
+                name: 'Pepper',
+                icon: '🌶️',
+                rarity: 'exotic',
+                baseMoney: 560000,
+                growthRate: 1.25,
+                maxLevel: 100,
+                harvestTime: 180,
+                allowMutation: false,
+                description: 'Pepper — no mutation. Level 1: $560,000; Level 2: $700,000; Level 3: $875,000. Harvests every 3 minutes.'
+            }
+        };
+
+        const RARITY_ORDER = [
+            'common', 'uncommon', 'rare', 'epic', 'legendary', 
+            'secret', 'prismatic', 'divine', 'exotic'
+        ];
+
+        let currentSeedId = 'void_fruit';
+        let currentRarityFilter = 'all';
+
+        // Multipliers
+        const mutationMultipliers = {
+            none: 1,
+            wet: 1.35,
+            frozen: 1.75,
+            void: 2.25,
+            radioactive: 3,
+            rainbow: 5
+        };
+
+        const HARVEST_TIME = 210;
+
+        // Pre-calculate all seed data
+        const seedCache = {};
+
+        // Helper: format minutes for labels (e.g., 3.5 -> "3.5 min" or "1:30 min" / "1h 10m")
+        function formatMinutesLabel(minutes) {
+            if (minutes < 60) {
+                const whole = Math.floor(minutes);
+                const frac = minutes - whole;
+                if (Math.abs(frac - 0.5) < 0.001) {
+                    return whole + ':30 min';
+                }
+                return minutes + ' min';
+            }
+            const hours = Math.floor(minutes / 60);
+            const mins = Math.round(minutes % 60);
+            let txt = hours + 'h';
+            if (mins > 0) txt += ' ' + mins + 'm';
+            return txt;
+        }
+
+        // Update the Time Period radio options to reflect the currently selected seed's harvest time
+        function updateTimeOptionsForSeed(seed) {
+            const baseHarvestMins = (seed.harvestTime || HARVEST_TIME) / 60;
+            const harvestMultipliers = [1, 2, 4, 6, 10, 20, 30, 60];
+            const timeOptionElems = document.querySelectorAll('.time-option');
+            timeOptionElems.forEach((opt, idx) => {
+                const input = opt.querySelector('input[name="time"]');
+                const labelSpan = opt.querySelector('.time-label');
+                const mult = harvestMultipliers[idx] || (idx + 1);
+                const minutes = baseHarvestMins * mult;
+                // set value (minutes)
+                if (input) input.value = minutes;
+                // set label text
+                if (labelSpan) {
+                    const harvestText = mult === 1 ? '1 Harvest' : (mult + ' Harvests');
+                    labelSpan.innerHTML = harvestText + '<br><small style="opacity:0.6;font-size:0.7rem">' + formatMinutesLabel(minutes) + '</small>';
+                }
+            });
+            // Make the '1 Harvest' option the checked one for this seed
+            document.querySelectorAll('input[name="time"]').forEach(input => {
+                const val = parseFloat(input.value);
+                if (Math.abs(val - baseHarvestMins) < 0.001) {
+                    input.checked = true;
+                } else {
+                    input.checked = false;
+                }
+            });
+        }
+
+        function buildSeedCache() {
+            for (const [seedId, seed] of Object.entries(SEED_DATABASE)) {
+                seedCache[seedId] = {};
+                for (let i = 1; i <= seed.maxLevel; i++) {
+                    seedCache[seedId][i] = seed.baseMoney * Math.pow(seed.growthRate, i - 1);
+                }
+            }
+        }
+
+        buildSeedCache();
+
+        // Format number with suffixes
+        function formatMoney(num) {
+            if (num === 0) return "$0";
+
+            const abs = Math.abs(num);
+            const suffixes = [
+                { limit: 1e24, suffix: 'Sp' },
+                { limit: 1e21, suffix: 'Sx' },
+                { limit: 1e18, suffix: 'Qi' },
+                { limit: 1e15, suffix: 'Qd' },
+                { limit: 1e12, suffix: 'T' },
+                { limit: 1e9, suffix: 'B' },
+                { limit: 1e6, suffix: 'M' },
+                { limit: 1e3, suffix: 'K' }
+            ];
+
+            for (const s of suffixes) {
+                if (abs >= s.limit) {
+                    return '$' + (num / s.limit).toFixed(3).replace(/\.0+$|\.00$/, '').replace(/\.$/, '') + s.suffix;
+                }
+            }
+
+            return '$' + num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+
+        function formatFullMoney(num) {
+            return '$' + num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+
+        // Get DOM elements
+        const seedGrid = document.getElementById('seedGrid');
+        const seedInfo = document.getElementById('seedInfo');
+        const rarityTabs = document.getElementById('rarityTabs');
+        const levelSlider = document.getElementById('levelSlider');
+        const levelInput = document.getElementById('levelInput');
+        const sawSlider = document.getElementById('sawSlider');
+        const sawInput = document.getElementById('sawInput');
+        const sprinklerSlider = document.getElementById('sprinklerSlider');
+        const sprinklerInput = document.getElementById('sprinklerInput');
+        const plantSlider = document.getElementById('plantSlider');
+        const plantInput = document.getElementById('plantInput');
+
+        // Render seed grid
+        function renderSeedGrid() {
+            seedGrid.innerHTML = '';
+
+            const seeds = Object.values(SEED_DATABASE).filter(seed => {
+                if (currentRarityFilter === 'all') return true;
+                return seed.rarity === currentRarityFilter;
+            }).sort((a, b) => {
+                const ra = RARITY_ORDER.indexOf(a.rarity);
+                const rb = RARITY_ORDER.indexOf(b.rarity);
+                if (ra !== rb) return ra - rb;
+                return a.name.localeCompare(b.name);
+            });
+
+            seeds.forEach(seed => {
+                const card = document.createElement('div');
+                card.className = 'seed-card' + (seed.id === currentSeedId ? ' selected' : '');
+                card.dataset.seedId = seed.id;
+                card.innerHTML = `
+                    <div class="seed-emoji">${seed.icon}</div>
+                    <div class="seed-name">${seed.name}</div>
+                `;
+                card.addEventListener('click', () => selectSeed(seed.id));
+                seedGrid.appendChild(card);
+            });
+        }
+
+        // Select a seed
+        function selectSeed(seedId) {
+            currentSeedId = seedId;
+            const seed = SEED_DATABASE[seedId];
+
+            document.querySelectorAll('.seed-card').forEach(card => {
+                card.classList.toggle('selected', card.dataset.seedId === seedId);
+            });
+
+            let baseStr = seed.baseMoney >= 1000 
+                ? '$' + (seed.baseMoney / 1000).toFixed(0) + 'K'
+                : '$' + seed.baseMoney;
+
+            seedInfo.innerHTML = `
+                <span class="seed-badge ${seed.rarity}">
+                    <span class="badge-dot"></span>
+                    ${seed.rarity.charAt(0).toUpperCase() + seed.rarity.slice(1)}
+                </span>
+                <span class="seed-badge">Base: ${baseStr}</span>
+            `;
+
+            document.querySelector('.level-max-badge').textContent = 'MAX ' + seed.maxLevel;
+            levelSlider.max = seed.maxLevel;
+            levelInput.max = seed.maxLevel;
+
+            let currentLevel = parseInt(levelInput.value);
+            if (currentLevel > seed.maxLevel) {
+                currentLevel = seed.maxLevel;
+                levelInput.value = currentLevel;
+                levelSlider.value = currentLevel;
+            }
+
+            const max = seed.maxLevel;
+            const labels = document.querySelectorAll('.level-range-labels');
+            // Only update the seed level range labels (first one)
+            const seedLabels = labels[0].querySelectorAll('span');
+            seedLabels[0].textContent = '1';
+            seedLabels[1].textContent = Math.floor(max * 0.25);
+            seedLabels[2].textContent = Math.floor(max * 0.5);
+            seedLabels[3].textContent = Math.floor(max * 0.75);
+            seedLabels[4].textContent = max;
+
+            // Disable mutation options for seeds that don't allow mutations
+            // Re-enable controls (they may have been disabled when switching rarities)
+            levelSlider.disabled = false; levelInput.disabled = false;
+            sawSlider.disabled = false; sawInput.disabled = false;
+            sprinklerSlider.disabled = false; sprinklerInput.disabled = false;
+            plantSlider.disabled = false; plantInput.disabled = false;
+
+            // Disable mutation options for seeds that don't allow mutations
+            document.querySelectorAll('input[name="mutation"]').forEach(el => {
+                el.disabled = seed.allowMutation === false;
+            });
+            if (seed.allowMutation === false) {
+                const none = document.querySelector('input[name="mutation"][value="none"]');
+                if (none) none.checked = true;
+            }
+
+            // Update time options to match this seed's harvest time
+            updateTimeOptionsForSeed(seed);
+
+            updateCalculator();
+        }
+
+        // Rarity tab click handler
+        rarityTabs.addEventListener('click', function(e) {
+            if (e.target.classList.contains('rarity-tab')) {
+                document.querySelectorAll('.rarity-tab').forEach(tab => tab.classList.remove('active'));
+                e.target.classList.add('active');
+                currentRarityFilter = e.target.dataset.rarity;
+                renderSeedGrid();
+                // If the currently selected seed is still valid under the new filter, keep it.
+                const seedStillVisible = currentSeedId && SEED_DATABASE[currentSeedId] && (currentRarityFilter === 'all' || SEED_DATABASE[currentSeedId].rarity === currentRarityFilter);
+                if (!seedStillVisible) {
+                    // clear selection and show a neutral state; only show rarity when a seed is explicitly clicked
+                    currentSeedId = null;
+                    const seedInfoEl = document.getElementById('seedInfo');
+                    seedInfoEl.innerHTML = '';
+                    document.querySelector('.level-max-badge').textContent = 'MAX -';
+                    levelSlider.max = 1; levelSlider.value = 1; levelInput.value = 1; levelSlider.disabled = true; levelInput.disabled = true;
+                    sawSlider.disabled = true; sawInput.disabled = true; sprinklerSlider.disabled = true; sprinklerInput.disabled = true; plantSlider.disabled = true; plantInput.disabled = true;
+                    document.getElementById('baseMoney').textContent = '—';
+                    document.getElementById('perPlant').textContent = '—';
+                    document.getElementById('totalEarnings').textContent = '—';
+                }
+            }
+        });
+
+        // Commit level input
+        function commitLevelInput() {
+            const seed = SEED_DATABASE[currentSeedId];
+            let v = parseInt(levelInput.value);
+            if (isNaN(v) || levelInput.value === '') {
+                v = parseInt(levelSlider.value);
+            } else {
+                if (v < 1) v = 1;
+                if (v > seed.maxLevel) v = seed.maxLevel;
+            }
+            levelInput.value = v;
+            levelSlider.value = v;
+            updateCalculator();
+        }
+
+        levelSlider.addEventListener('input', function() {
+            levelInput.value = this.value;
+            updateCalculator();
+        });
+        levelInput.addEventListener('blur', commitLevelInput);
+        levelInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                commitLevelInput();
+                this.blur();
+            }
+        });
+
+        // Commit saw input
+        function commitSawInput() {
+            let v = parseInt(sawInput.value);
+            if (isNaN(v) || sawInput.value === '') {
+                v = parseInt(sawSlider.value);
+            } else {
+                if (v < 1) v = 1;
+                // No upper limit for saw (infinite)
+            }
+            sawInput.value = v;
+            // Only sync slider if within range
+            if (v <= 100) {
+                sawSlider.value = v;
+            }
+            updateCalculator();
+        }
+
+        sawSlider.addEventListener('input', function() {
+            sawInput.value = this.value;
+            updateCalculator();
+        });
+        sawInput.addEventListener('blur', commitSawInput);
+        sawInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                commitSawInput();
+                this.blur();
+            }
+        });
+
+        // Commit sprinkler input
+        function commitSprinklerInput() {
+            let v = parseInt(sprinklerInput.value);
+            if (isNaN(v) || sprinklerInput.value === '') {
+                v = parseInt(sprinklerSlider.value);
+            } else {
+                if (v < 1) v = 1;
+                // No upper limit for sprinkler (infinite)
+            }
+            sprinklerInput.value = v;
+            // Only sync slider if within range
+            if (v <= 100) {
+                sprinklerSlider.value = v;
+            }
+            updateCalculator();
+        }
+
+        sprinklerSlider.addEventListener('input', function() {
+            sprinklerInput.value = this.value;
+            updateCalculator();
+        });
+        sprinklerInput.addEventListener('blur', commitSprinklerInput);
+        sprinklerInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                commitSprinklerInput();
+                this.blur();
+            }
+        });
+
+        // Commit plant input
+        function commitPlantInput() {
+            let v = parseInt(plantInput.value);
+            if (isNaN(v) || plantInput.value === '') {
+                v = parseInt(plantSlider.value);
+            } else {
+                if (v < 1) v = 1;
+                if (v > 60) v = 60;
+            }
+            plantInput.value = v;
+            plantSlider.value = v;
+            updateCalculator();
+        }
+
+        plantSlider.addEventListener('input', function() {
+            plantInput.value = this.value;
+            updateCalculator();
+        });
+        plantInput.addEventListener('blur', commitPlantInput);
+        plantInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                commitPlantInput();
+                this.blur();
+            }
+        });
+
+        // Ring placement multipliers
+        const placementMultipliers = {
+            inner: 7,
+            middle: 13,
+            outer: 19
+        };
+
+        // Calculate and update display
+        function updateCalculator() {
+            if (!currentSeedId || !SEED_DATABASE[currentSeedId]) {
+                // No seed selected: clear right-side displays
+                document.getElementById('baseMoney').textContent = '—';
+                document.getElementById('perPlant').textContent = '—';
+                document.getElementById('totalEarnings').textContent = '—';
+                document.getElementById('detailSeed').textContent = '—';
+                document.getElementById('detailLevel').textContent = '—';
+                document.getElementById('detailPlacement').textContent = '—';
+                document.getElementById('detailSaw').textContent = '—';
+                document.getElementById('detailMutation').textContent = '—';
+                document.getElementById('detailSprinkler').textContent = '—';
+                document.getElementById('detailRobux').textContent = '—';
+                document.getElementById('detailPlants').textContent = '—';
+                document.getElementById('detailHarvests').textContent = '—';
+                document.getElementById('breakBase').textContent = '—';
+                document.getElementById('breakMutation').textContent = '—';
+                document.getElementById('breakUnit').textContent = '—';
+                document.getElementById('breakPlacement').textContent = '—';
+                document.getElementById('breakSawSprinkler').textContent = '—';
+                document.getElementById('breakConstant').textContent = '—';
+                document.getElementById('breakRobux').textContent = '—';
+                document.getElementById('breakPerPlant').textContent = '—';
+                document.getElementById('breakTime').textContent = '—';
+                document.getElementById('breakTotal').textContent = '—';
+                return;
+            }
+
+            const seed = SEED_DATABASE[currentSeedId];
+            const level = parseInt(levelSlider.value);
+            const sawYield = parseInt(sawInput.value) || 1;
+            const mutation = document.querySelector('input[name="mutation"]:checked').value;
+            const placement = document.querySelector('input[name="ring"]:checked').value;
+            const sprinklerMult = parseInt(sprinklerInput.value) || 1;
+            const robuxMult = parseInt(document.querySelector('input[name="robux"]:checked').value);
+            const timeMinutes = parseFloat(document.querySelector('input[name="time"]:checked').value);
+            const plants = parseInt(plantInput.value) || 1;
+
+            // Base money per unit at this level
+            const baseMoney = seedCache[currentSeedId][level];
+
+            // Multipliers
+            const placeMult = placementMultipliers[placement];
+            const mutMult = (seed.allowMutation === false) ? 1 : mutationMultipliers[mutation];
+
+            // FORMULA: Unit × Placement × (Saw + Sprinkler) × 25/1748 × Robux
+            // Where Unit = baseMoney × mutation
+            const unitValue = baseMoney * mutMult;
+            const sawSprinklerCombo = sawYield + sprinklerMult;
+            const perPlant = unitValue * placeMult * sawSprinklerCombo * (25 / 1748) * robuxMult;
+
+            // Number of harvests in time period (use per-seed harvestTime if provided)
+            const harvestTime = seed.harvestTime || HARVEST_TIME;
+            const harvests = Math.floor((timeMinutes * 60) / harvestTime);
+            const totalEarnings = perPlant * plants * harvests;
+
+            // Update displays
+            document.getElementById('baseMoney').textContent = formatMoney(unitValue);
+            document.getElementById('perPlant').textContent = formatMoney(perPlant);
+            document.getElementById('totalEarnings').textContent = formatMoney(totalEarnings);
+
+            // Detail labels
+            document.getElementById('detailSeed').textContent = seed.name;
+            document.getElementById('detailLevel').textContent = level;
+            document.getElementById('detailPlacement').textContent = 
+                placement.charAt(0).toUpperCase() + placement.slice(1) + ' (' + placeMult + 'x)';
+            document.getElementById('detailSaw').textContent = sawYield + ' (+' + sprinklerMult + ' Sprinkler)';
+            if (seed.allowMutation === false) {
+                document.getElementById('detailMutation').textContent = 'None (1x)';
+            } else {
+                document.getElementById('detailMutation').textContent = 
+                    mutation.charAt(0).toUpperCase() + mutation.slice(1) + ' (' + mutMult + 'x)';
+            }
+            document.getElementById('detailSprinkler').textContent = 
+                'Combined: ' + (sawYield + sprinklerMult);
+            document.getElementById('detailRobux').textContent = 
+                robuxMult === 1 ? 'None (1x)' : ('×' + robuxMult + ' (' + robuxMult + 'x)');
+            document.getElementById('detailPlants').textContent = plants;
+            document.getElementById('detailHarvests').textContent = '~' + harvests;
+
+            // Time label
+            let timeText;
+            if (timeMinutes < 60) {
+                const whole = Math.floor(timeMinutes);
+                const frac = timeMinutes - whole;
+                if (frac === 0.5) {
+                    timeText = whole + ':30 min';
+                } else {
+                    timeText = timeMinutes + ' min';
+                }
+            } else {
+                const hours = Math.floor(timeMinutes / 60);
+                const mins = Math.round(timeMinutes % 60);
+                timeText = hours + 'h';
+                if (mins > 0) timeText += ' ' + mins + 'm';
+            }
+            document.getElementById('timeLabel').textContent = timeText;
+
+            // Breakdown table
+            document.getElementById('breakBase').textContent = formatFullMoney(baseMoney);
+            document.getElementById('breakMutation').textContent = '× ' + mutMult;
+            document.getElementById('breakUnit').textContent = formatFullMoney(unitValue);
+            document.getElementById('breakPlacement').textContent = '× ' + placeMult;
+            document.getElementById('breakSawSprinkler').textContent = sawYield + ' + ' + sprinklerMult + ' = ' + (sawYield + sprinklerMult);
+            document.getElementById('breakConstant').textContent = '× 25/1748';
+            document.getElementById('breakRobux').textContent = '× ' + robuxMult;
+            document.getElementById('breakPerPlant').textContent = formatFullMoney(perPlant);
+            document.getElementById('breakTime').textContent = timeText;
+            document.getElementById('breakTotal').textContent = formatFullMoney(totalEarnings);
+        }
+
+        // Event listeners for other inputs
+        document.querySelectorAll('input[name="ring"]').forEach(el => {
+            el.addEventListener('change', updateCalculator);
+        });
+        document.querySelectorAll('input[name="mutation"]').forEach(el => {
+            el.addEventListener('change', updateCalculator);
+        });
+        document.querySelectorAll('input[name="time"]').forEach(el => {
+            el.addEventListener('change', updateCalculator);
+        });
+        document.querySelectorAll('input[name="robux"]').forEach(el => {
+            el.addEventListener('change', updateCalculator);
+        });
+
+        // Create particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            p.style.animationDuration = (6 + Math.random() * 6) + 's';
+            particlesContainer.appendChild(p);
+        }
+
+        // Initialize
+        renderSeedGrid();
+        selectSeed('void_fruit');
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>

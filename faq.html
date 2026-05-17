@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build A Ring Farm FAQ | Mutations, Events & Multipliers</title>
+
+    <meta name="description" content="Answers for Build A Ring Farm players on events, mutations, seeds, and ring strategy.">
+    <link rel="canonical" href="https://buildaring.xyz/faq.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Build A Ring Farm FAQ | Mutations, Events & Multipliers">
+    <meta property="og:description" content="Answers for Build A Ring Farm players on events, mutations, seeds, and ring strategy.">
+    <meta property="og:image" content="https://buildaring.xyz/social-preview.png">
+    <meta property="og:url" content="https://buildaring.xyz/faq.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build A Ring Farm FAQ | Mutations, Events & Multipliers">
+    <meta name="twitter:description" content="Answers for Build A Ring Farm players on events, mutations, seeds, and ring strategy.">
+    <meta name="twitter:image" content="https://buildaring.xyz/social-preview.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many total seeds are there?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are currently 39 unique seeds available in the game."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the different seed rarities?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common, Uncommon, Rare, Epic, Legendary, Secret, Prismatic, Divine, and Exotic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are Seed Mutations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seed mutations include Wet (1.35x), Frozen (1.75x), Void (2.25x), Radioactive (3x), and Rainbow (5x)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are Mutation Events?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mutation Events are weather events that trigger mutation chances. Each event has 1–3 rolls, and every placed plant gets a roll chance. For example, a Black Hole event can give each plant a 3% chance to mutate into Void."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are Ring Multipliers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ring multipliers are Base Ring = 7x, Middle Ring = 13x, and Outer Ring = 19x."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Money Multipliers exist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Available money multipliers include 2x, 4x, 6x, 8x, 10x, and 12x."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #16161e;
+    --bg-hover: #1e1e2a;
+    --border: #252535;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8b8ba0;
+    --text-muted: #5a5a70;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 80px;
+}
+
+.section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.faq-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.faq-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+.faq-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.faq-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.faq-card p,
+.faq-card li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.faq-card ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.highlight {
+    color: white;
+    font-weight: 700;
+}
+
+.multiplier {
+    color: #22c55e;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+}
+
+.bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-120px) translateX(50px); }
+}
+
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem; font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.3s; border-radius: 2px;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+@media (max-width: 768px) {
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .menu-toggle { display: block; }
+}
+
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+    </style>
+</head>
+
+<body>
+
+<div class="bg-particles" id="particles"></div>
+
+<div id="navbar-container"></div>
+
+<main class="main-content">
+
+<section class="section">
+
+    <div class="section-header">
+        <h1 class="section-title">❓ FAQ</h1>
+        <p class="section-subtitle">
+            Frequently asked questions about Build A Ring Farm
+        </p>
+    </div>
+
+    <div class="faq-grid">
+
+        <div class="faq-card">
+            <h3>🌽 How many total seeds are there?</h3>
+            <p>
+                There are currently
+                <span class="highlight">39 unique seeds</span>
+                available in the game.
+            </p>
+        </div>
+
+        <div class="faq-card">
+            <h3>✨ What are the different seed rarities?</h3>
+            <p>
+                Common, Uncommon, Rare, Epic,
+                Legendary, Secret, Prismatic,
+                Divine, and Exotic.
+            </p>
+        </div>
+
+        <div class="faq-card">
+            <h3>🧬 What are Seed Mutations?</h3>
+
+            <ul>
+                <li>Wet = <span class="multiplier">1.35x</span></li>
+                <li>Frozen = <span class="multiplier">1.75x</span></li>
+                <li>Void = <span class="multiplier">2.25x</span></li>
+                <li>Radioactive = <span class="multiplier">3x</span></li>
+                <li>Rainbow = <span class="multiplier">5x</span></li>
+            </ul>
+        </div>
+
+        <div class="faq-card">
+            <h3>🌪️ What are Mutation Events?</h3>
+
+            <p>
+                Mutation Events are weather events that trigger mutation chances.
+            </p>
+
+            <ul>
+                <li>Each event has 1–3 rolls.</li>
+                <li>Every placed plant gets a roll chance.</li>
+            </ul>
+
+            <p style="margin-top:1rem;">
+                Example:
+                If you have 20 plants placed and a Black Hole event occurs,
+                every plant gets a 3% chance to mutate into Void.
+            </p>
+        </div>
+
+        <div class="faq-card">
+            <h3>💍 What are Ring Multipliers?</h3>
+
+            <ul>
+                <li>Base Ring = <span class="multiplier">7x</span></li>
+                <li>Middle Ring = <span class="multiplier">13x</span></li>
+                <li>Outer Ring = <span class="multiplier">19x</span></li>
+            </ul>
+        </div>
+
+        <div class="faq-card">
+            <h3>💰 What Money Multipliers exist?</h3>
+
+            <p>
+                Available multipliers:
+                <span class="highlight">
+                    2x, 4x, 6x, 8x, 10x, and 12x
+                </span>
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<div id="footer-container"></div>
+
+<script>
+const particlesContainer = document.getElementById('particles');
+
+for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+
+    p.className = 'particle';
+
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+
+    p.style.animationDelay = Math.random() * 10 + 's';
+
+    particlesContainer.appendChild(p);
+}
+</script>
+
+<script src="js/components.js"></script>
+
+</body>
+</html>

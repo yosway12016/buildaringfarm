@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build A Ring Farm Mutations Guide | Mutation Rankings & Farming</title>
+    <meta name="description" content="Learn all Build A Ring Farm mutation chances, event effects, and mutation farming strategies.">
+    <link rel="canonical" href="https://buildaring.xyz/mutations.html">
+        <meta property="og:type" content="website">
+    <meta property="og:title" content="Build A Ring Farm Mutations Guide | Mutation Rankings & Farming">
+    <meta property="og:description" content="Learn all Build A Ring Farm mutation chances, event effects, and mutation farming strategies.">
+    <meta property="og:image" content="https://buildaring.xyz/social-preview.png">
+    <meta property="og:url" content="https://buildaring.xyz/mutations.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build A Ring Farm Mutations Guide | Mutation Rankings & Farming">
+    <meta name="twitter:description" content="Learn all Build A Ring Farm mutation chances, event effects, and mutation farming strategies.">
+    <meta name="twitter:image" content="https://buildaring.xyz/social-preview.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Build A Ring Farm Mutations Guide | Mutation Rankings & Farming",
+      "url": "https://buildaring.xyz/mutations.html",
+      "description": "Learn all Build A Ring Farm mutation chances, event effects, and mutation farming strategies.",
+      "image": "https://buildaring.xyz/social-preview.png"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #16161e;
+    --bg-hover: #1e1e2a;
+    --border: #252535;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8b8ba0;
+    --text-muted: #5a5a70;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+    --common: #9ca3af; --uncommon: #22c55e; --rare: #3b82f6;
+    --epic: #a855f7; --legendary: #f59e0b; --secret: #ef4444;
+    --prismatic: #ec4899; --divine: #06b6d4; --exotic: #f97316;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.bg-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle {
+    position: absolute; width: 4px; height: 4px;
+    background: var(--accent); border-radius: 50%; opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+    0%,100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    50% { transform: translateY(-50px) translateX(-30px); opacity: 0.2; }
+    75% { transform: translateY(-150px) translateX(20px); opacity: 0.5; }
+}
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+    font-size: 1.4rem; font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.3s; border-radius: 2px;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.main-content { position: relative; z-index: 1; padding-top: 80px; }
+.section {
+    padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;
+}
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+.footer {
+    text-align: center; padding: 3rem 2rem; color: var(--text-muted);
+    border-top: 1px solid var(--border); margin-top: 3rem;
+}
+.back-to-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 1.2rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; z-index: 999; opacity: 0; pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.search-bar {
+    max-width: 500px; margin: 0 auto 2rem;
+    position: relative;
+}
+.search-bar input {
+    width: 100%; padding: 1rem 1.5rem 1rem 3rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--text-primary);
+    font-family: 'Outfit', sans-serif; font-size: 1rem;
+    outline: none; transition: all 0.3s;
+}
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar::before {
+    content: '🔍'; position: absolute; left: 1rem; top: 50%;
+    transform: translateY(-50%); font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .section { padding: 3rem 1rem; }
+    .menu-toggle { display: block; }
+}
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        .mutations-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;
+            max-width: 1200px; margin: 0 auto;
+        }
+        .mutation-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .mutation-card::after {
+            content: ''; position: absolute; top: -50%; right: -50%;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle, var(--glow-color, var(--accent)), transparent 70%);
+            opacity: 0.1; transition: opacity 0.3s;
+        }
+        .mutation-card:hover {
+            transform: translateY(-3px); border-color: var(--glow-color, var(--accent));
+        }
+        .mutation-card:hover::after { opacity: 0.2; }
+        .mutation-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .mutation-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .mutation-multiplier {
+            font-family: 'Space Mono', monospace; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;
+        }
+        .mutation-info {
+            background: var(--bg-primary); border-radius: 12px; padding: 1rem;
+            margin-top: 1rem;
+        }
+        .mutation-info-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.4rem 0; border-bottom: 1px solid var(--border);
+        }
+        .mutation-info-row:last-child { border-bottom: none; }
+        .info-label { color: var(--text-muted); font-size: 0.85rem; }
+        .info-value { font-weight: 600; font-size: 0.9rem; }
+        .spray-price { color: var(--legendary); font-family: 'Space Mono', monospace; }
+        .event-chance { color: var(--rare); font-family: 'Space Mono', monospace; }
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 158, 11, 0.1));
+            border: 1px solid var(--secret); border-radius: 12px;
+            padding: 1.5rem; margin: 2rem auto; max-width: 800px;
+        }
+        .warning-box h4 { color: var(--secret); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .warning-box p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .acid-spray {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(124, 58, 237, 0.1));
+            border: 1px solid var(--epic); border-radius: 12px;
+            padding: 1.5rem; margin: 2rem auto; max-width: 800px;
+        }
+        .acid-spray h4 { color: var(--epic); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .acid-spray p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .mutation-card.wet { --glow-color: #3b82f6; }
+        .mutation-card.wet .mutation-multiplier { color: #3b82f6; }
+        .mutation-card.frozen { --glow-color: #06b6d4; }
+        .mutation-card.frozen .mutation-multiplier { color: #06b6d4; }
+        .mutation-card.void { --glow-color: #8b5cf6; }
+        .mutation-card.void .mutation-multiplier { color: #8b5cf6; }
+        .mutation-card.radioactive { --glow-color: #22c55e; }
+        .mutation-card.radioactive .mutation-multiplier { color: #22c55e; }
+        .mutation-card.rainbow { --glow-color: #ec4899; }
+        .mutation-card.rainbow .mutation-multiplier { color: #ec4899; }
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">⚡ Mutations</h2>
+                <p class="section-subtitle">All mutations, their multipliers, and how to obtain them</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Important Rules</h4>
+                <p>Mutations <strong>cannot stack</strong> — a plant can only have one mutation at a time. You must be <strong>online</strong> during events for mutations to apply to your plants.</p>
+            </div>
+
+            <div class="mutations-grid">
+                <div class="mutation-card wet">
+                    <div class="mutation-icon">💧</div>
+                    <div class="mutation-name">Wet</div>
+                    <div class="mutation-multiplier">1.5x</div>
+                    <div class="mutation-info">
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Chance</span>
+                            <span class="info-value event-chance">8%</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Spray Price</span>
+                            <span class="info-value spray-price">$10M</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Type</span>
+                            <span class="info-value">Rain</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mutation-card frozen">
+                    <div class="mutation-icon">❄️</div>
+                    <div class="mutation-name">Frozen</div>
+                    <div class="mutation-multiplier">1.75x</div>
+                    <div class="mutation-info">
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Chance</span>
+                            <span class="info-value event-chance">4%</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Spray Price</span>
+                            <span class="info-value spray-price">$750M</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Type</span>
+                            <span class="info-value">Blizzard</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mutation-card void">
+                    <div class="mutation-icon">🌑</div>
+                    <div class="mutation-name">Void</div>
+                    <div class="mutation-multiplier">2.25x</div>
+                    <div class="mutation-info">
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Chance</span>
+                            <span class="info-value event-chance">3%</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Spray Price</span>
+                            <span class="info-value spray-price">$1B</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Type</span>
+                            <span class="info-value">Black Hole</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mutation-card radioactive">
+                    <div class="mutation-icon">☢️</div>
+                    <div class="mutation-name">Radioactive</div>
+                    <div class="mutation-multiplier">3x</div>
+                    <div class="mutation-info">
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Chance</span>
+                            <span class="info-value event-chance">2%</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Spray Price</span>
+                            <span class="info-value spray-price">$10B</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Type</span>
+                            <span class="info-value">Nuclear</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mutation-card rainbow">
+                    <div class="mutation-icon">🌈</div>
+                    <div class="mutation-name">Rainbow</div>
+                    <div class="mutation-multiplier">5x</div>
+                    <div class="mutation-info">
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Chance</span>
+                            <span class="info-value event-chance">1%</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Spray Price</span>
+                            <span class="info-value spray-price">$1T</span>
+                        </div>
+                        <div class="mutation-info-row">
+                            <span class="info-label">Event Type</span>
+                            <span class="info-value">Galaxy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acid-spray">
+                <h4>🧪 Removing Mutations</h4>
+                <p>Want to change your mutation? Buy <strong>Acid Spray</strong> for <strong>$1M</strong> from the Gear Shop to remove any existing mutation from a plant. Then you can apply a new spray or wait for a new event!</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(p);
+        }
+    </script>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <script>
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>

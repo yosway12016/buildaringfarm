@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build A Ring Farm Events Guide | Weather, Mutations & Bonus Farming</title>
+    <meta name="description" content="Explore Build A Ring Farm events, mutation triggers, and event farming tips.">
+    <link rel="canonical" href="https://buildaring.xyz/events.html">
+        <meta property="og:type" content="website">
+    <meta property="og:title" content="Build A Ring Farm Events Guide | Weather, Mutations & Bonus Farming">
+    <meta property="og:description" content="Explore Build A Ring Farm events, mutation triggers, and event farming tips.">
+    <meta property="og:image" content="https://buildaring.xyz/social-preview.png">
+    <meta property="og:url" content="https://buildaring.xyz/events.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build A Ring Farm Events Guide | Weather, Mutations & Bonus Farming">
+    <meta name="twitter:description" content="Explore Build A Ring Farm events, mutation triggers, and event farming tips.">
+    <meta name="twitter:image" content="https://buildaring.xyz/social-preview.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Build A Ring Farm Events Guide | Weather, Mutations & Bonus Farming",
+      "url": "https://buildaring.xyz/events.html",
+      "description": "Explore Build A Ring Farm events, mutation triggers, and event farming tips.",
+      "image": "https://buildaring.xyz/social-preview.png"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #16161e;
+    --bg-hover: #1e1e2a;
+    --border: #252535;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8b8ba0;
+    --text-muted: #5a5a70;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+    --common: #9ca3af; --uncommon: #22c55e; --rare: #3b82f6;
+    --epic: #a855f7; --legendary: #f59e0b; --secret: #ef4444;
+    --prismatic: #ec4899; --divine: #06b6d4; --exotic: #f97316;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.bg-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle {
+    position: absolute; width: 4px; height: 4px;
+    background: var(--accent); border-radius: 50%; opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+    0%,100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    50% { transform: translateY(-50px) translateX(-30px); opacity: 0.2; }
+    75% { transform: translateY(-150px) translateX(20px); opacity: 0.5; }
+}
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+    font-size: 1.4rem; font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.3s; border-radius: 2px;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.main-content { position: relative; z-index: 1; padding-top: 80px; }
+.section {
+    padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;
+}
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+.footer {
+    text-align: center; padding: 3rem 2rem; color: var(--text-muted);
+    border-top: 1px solid var(--border); margin-top: 3rem;
+}
+.back-to-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 1.2rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; z-index: 999; opacity: 0; pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.search-bar {
+    max-width: 500px; margin: 0 auto 2rem;
+    position: relative;
+}
+.search-bar input {
+    width: 100%; padding: 1rem 1.5rem 1rem 3rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--text-primary);
+    font-family: 'Outfit', sans-serif; font-size: 1rem;
+    outline: none; transition: all 0.3s;
+}
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar::before {
+    content: '🔍'; position: absolute; left: 1rem; top: 50%;
+    transform: translateY(-50%); font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .section { padding: 3rem 1rem; }
+    .menu-toggle { display: block; }
+}
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        .events-table {
+            width: 100%; max-width: 900px; margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .events-table th {
+            background: var(--bg-hover); color: var(--text-primary);
+            padding: 1rem; text-align: left; font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
+        }
+        .events-table td {
+            padding: 1rem; border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        .events-table tr:hover td {
+            background: var(--bg-hover); color: var(--text-primary);
+        }
+        .event-name { font-weight: 700; color: var(--text-primary); }
+        .event-chance { font-family: 'Space Mono', monospace; color: var(--rare); font-weight: 700; }
+        .roll-chance { font-family: 'Space Mono', monospace; color: var(--uncommon); font-weight: 700; }
+        .multiplier { font-family: 'Space Mono', monospace; color: var(--legendary); font-weight: 700; }
+        .info-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 2rem; margin: 1.5rem auto;
+            max-width: 800px;
+        }
+        .info-card h3 {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .info-card p {
+            color: var(--text-secondary); line-height: 1.8; margin-bottom: 0.75rem;
+        }
+        .highlight {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(236, 72, 153, 0.15));
+            border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+            border-radius: 0 12px 12px 0; margin: 1rem 0;
+        }
+        .highlight p { margin: 0; color: var(--text-primary); }
+        .example-box {
+            background: var(--bg-primary); border-radius: 12px;
+            padding: 1.25rem; font-family: 'Space Mono', monospace;
+            border: 1px solid var(--border); margin: 1rem 0;
+        }
+        .example-box .line { color: var(--text-secondary); margin: 0.3rem 0; }
+        .example-box .result { color: var(--uncommon); font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">🌦️ Mutation Events</h2>
+                <p class="section-subtitle">Weather events that can mutate your plants</p>
+            </div>
+
+            <div class="info-card">
+                <h3>How Events Work</h3>
+                <p>There are anywhere between <strong>1-3 rolls per event</strong>. Every time a roll procs, plants have that respective chance to mutate.</p>
+                <div class="highlight">
+                    <p><strong>Example:</strong> If you have 20 plants down and Black Hole rolls, each one of those 20 plants has a <strong>3% chance</strong> to mutate to Void per roll.</p>
+                </div>
+            </div>
+
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Event Chance</th>
+                        <th>Chance per Roll</th>
+                        <th>Multiplier</th>
+                        <th>Mutation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="event-name">🌧️ Rain</span></td>
+                        <td><span class="event-chance">40%</span></td>
+                        <td><span class="roll-chance">8%</span></td>
+                        <td><span class="multiplier">1.5x</span></td>
+                        <td>Wet</td>
+                    </tr>
+                    <tr>
+                        <td><span class="event-name">❄️ Blizzard</span></td>
+                        <td><span class="event-chance">20%</span></td>
+                        <td><span class="roll-chance">4%</span></td>
+                        <td><span class="multiplier">1.75x</span></td>
+                        <td>Frozen</td>
+                    </tr>
+                    <tr>
+                        <td><span class="event-name">🌑 Black Hole</span></td>
+                        <td><span class="event-chance">12%</span></td>
+                        <td><span class="roll-chance">3%</span></td>
+                        <td><span class="multiplier">2.25x</span></td>
+                        <td>Void</td>
+                    </tr>
+                    <tr>
+                        <td><span class="event-name">☢️ Nuclear</span></td>
+                        <td><span class="event-chance">7%</span></td>
+                        <td><span class="roll-chance">2%</span></td>
+                        <td><span class="multiplier">3x</span></td>
+                        <td>Radioactive</td>
+                    </tr>
+                    <tr>
+                        <td><span class="event-name">🌌 Galaxy</span></td>
+                        <td><span class="event-chance">4%</span></td>
+                        <td><span class="roll-chance">1%</span></td>
+                        <td><span class="multiplier">5x</span></td>
+                        <td>Rainbow</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-card">
+                <h3>📊 Rolls Per Event</h3>
+                <p>Each event triggers <strong>1 to 3 rolls</strong>. The number of rolls is random, and each roll is independent — meaning a single event could potentially mutate multiple plants, or none at all.</p>
+                <div class="example-box">
+                    <div class="line">Rain Event starts → <span class="result">2 rolls</span> trigger</div>
+                    <div class="line">Roll 1: Plant A has 8% chance → <span class="result">Wet!</span></div>
+                    <div class="line">Roll 2: Plant B has 8% chance → <span class="result">No mutation</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(p);
+        }
+    </script>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <script>
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>

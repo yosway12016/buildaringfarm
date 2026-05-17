@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build A Ring Farm Seeds Guide | Best Seed Rarities & Drops</title>
+    <meta name="description" content="Discover every Build A Ring Farm seed, rarity, and farming strategy for maximum profit.">
+    <link rel="canonical" href="https://buildaring.xyz/fruits.html">
+        <meta property="og:type" content="website">
+    <meta property="og:title" content="Build A Ring Farm Seeds Guide | Best Seed Rarities & Drops">
+    <meta property="og:description" content="Discover every Build A Ring Farm seed, rarity, and farming strategy for maximum profit.">
+    <meta property="og:image" content="https://buildaring.xyz/social-preview.png">
+    <meta property="og:url" content="https://buildaring.xyz/fruits.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build A Ring Farm Seeds Guide | Best Seed Rarities & Drops">
+    <meta name="twitter:description" content="Discover every Build A Ring Farm seed, rarity, and farming strategy for maximum profit.">
+    <meta name="twitter:image" content="https://buildaring.xyz/social-preview.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Build A Ring Farm Seeds Guide | Best Seed Rarities & Drops",
+      "url": "https://buildaring.xyz/fruits.html",
+      "description": "Discover every Build A Ring Farm seed, rarity, and farming strategy for maximum profit.",
+      "image": "https://buildaring.xyz/social-preview.png"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #16161e;
+    --bg-hover: #1e1e2a;
+    --border: #252535;
+    --text-primary: #e8e8f0;
+    --text-secondary: #8b8ba0;
+    --text-muted: #5a5a70;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.3);
+    --common: #9ca3af; --uncommon: #22c55e; --rare: #3b82f6;
+    --epic: #a855f7; --legendary: #f59e0b; --secret: #ef4444;
+    --prismatic: #ec4899; --divine: #06b6d4; --exotic: #f97316;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.bg-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle {
+    position: absolute; width: 4px; height: 4px;
+    background: var(--accent); border-radius: 50%; opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+@keyframes float {
+    0%,100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    25% { transform: translateY(-100px) translateX(50px); opacity: 0.6; }
+    50% { transform: translateY(-50px) translateX(-30px); opacity: 0.2; }
+    75% { transform: translateY(-150px) translateX(20px); opacity: 0.5; }
+}
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+    font-size: 1.4rem; font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; display: flex; align-items: center; gap: 0.5rem;
+    text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-weight: 500; font-size: 0.85rem; transition: color 0.3s; position: relative;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 2px; background: var(--accent);
+    transition: width 0.3s; border-radius: 2px;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.main-content { position: relative; z-index: 1; padding-top: 80px; }
+.section {
+    padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;
+}
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+.footer {
+    text-align: center; padding: 3rem 2rem; color: var(--text-muted);
+    border-top: 1px solid var(--border); margin-top: 3rem;
+}
+.back-to-top {
+    position: fixed; bottom: 2rem; right: 2rem;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-secondary); font-size: 1.2rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; z-index: 999; opacity: 0; pointer-events: none;
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.search-bar {
+    max-width: 500px; margin: 0 auto 2rem;
+    position: relative;
+}
+.search-bar input {
+    width: 100%; padding: 1rem 1.5rem 1rem 3rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; color: var(--text-primary);
+    font-family: 'Outfit', sans-serif; font-size: 1rem;
+    outline: none; transition: all 0.3s;
+}
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar::before {
+    content: '🔍'; position: absolute; left: 1rem; top: 50%;
+    transform: translateY(-50%); font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+    .navbar { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .section { padding: 3rem 1rem; }
+    .menu-toggle { display: block; }
+}
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        .rarity-tabs {
+            display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+        }
+        .rarity-tab {
+            padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border);
+            background: var(--bg-card); color: var(--text-secondary); cursor: pointer;
+            font-weight: 500; font-family: 'Outfit', sans-serif; transition: all 0.3s; font-size: 0.9rem;
+        }
+        .rarity-tab:hover { background: var(--bg-hover); color: var(--text-primary); }
+        .rarity-tab.active { color: white; border-color: transparent; }
+        .rarity-tab[data-rarity="common"].active { background: var(--common); }
+        .rarity-tab[data-rarity="uncommon"].active { background: var(--uncommon); }
+        .rarity-tab[data-rarity="rare"].active { background: var(--rare); }
+        .rarity-tab[data-rarity="epic"].active { background: var(--epic); }
+        .rarity-tab[data-rarity="legendary"].active { background: var(--legendary); }
+        .rarity-tab[data-rarity="secret"].active { background: var(--secret); }
+        .rarity-tab[data-rarity="prismatic"].active { background: var(--prismatic); }
+        .rarity-tab[data-rarity="divine"].active { background: var(--divine); }
+        .rarity-tab[data-rarity="exotic"].active { background: var(--exotic); }
+        .fruits-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem;
+        }
+        .fruit-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 1.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden; text-align: center;
+        }
+        .fruit-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            border-radius: 16px 16px 0 0;
+        }
+        .fruit-card[data-rarity="common"]::before { background: var(--common); }
+        .fruit-card[data-rarity="uncommon"]::before { background: var(--uncommon); }
+        .fruit-card[data-rarity="rare"]::before { background: var(--rare); }
+        .fruit-card[data-rarity="epic"]::before { background: var(--epic); }
+        .fruit-card[data-rarity="legendary"]::before { background: var(--legendary); }
+        .fruit-card[data-rarity="secret"]::before { background: var(--secret); }
+        .fruit-card[data-rarity="prismatic"]::before { background: var(--prismatic); }
+        .fruit-card[data-rarity="divine"]::before { background: var(--divine); }
+        .fruit-card[data-rarity="exotic"]::before { background: var(--exotic); }
+        .fruit-card:hover { transform: translateY(-5px); border-color: transparent; }
+        .fruit-card[data-rarity="common"]:hover { box-shadow: 0 20px 40px rgba(156, 163, 175, 0.15); }
+        .fruit-card[data-rarity="uncommon"]:hover { box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15); }
+        .fruit-card[data-rarity="rare"]:hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15); }
+        .fruit-card[data-rarity="epic"]:hover { box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15); }
+        .fruit-card[data-rarity="legendary"]:hover { box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15); }
+        .fruit-card[data-rarity="secret"]:hover { box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15); }
+        .fruit-card[data-rarity="prismatic"]:hover { box-shadow: 0 20px 40px rgba(236, 72, 153, 0.15); }
+        .fruit-card[data-rarity="divine"]:hover { box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15); }
+        .fruit-card[data-rarity="exotic"]:hover { box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15); }
+        .fruit-icon { font-size: 3.5rem; margin-bottom: 0.75rem; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+        .fruit-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .fruit-rarity {
+            display: inline-block; padding: 0.25rem 0.7rem; border-radius: 20px;
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .fruit-rarity.common { background: rgba(156, 163, 175, 0.15); color: var(--common); }
+        .fruit-rarity.uncommon { background: rgba(34, 197, 94, 0.15); color: var(--uncommon); }
+        .fruit-rarity.rare { background: rgba(59, 130, 246, 0.15); color: var(--rare); }
+        .fruit-rarity.epic { background: rgba(168, 85, 247, 0.15); color: var(--epic); }
+        .fruit-rarity.legendary { background: rgba(245, 158, 11, 0.15); color: var(--legendary); }
+        .fruit-rarity.secret { background: rgba(239, 68, 68, 0.15); color: var(--secret); }
+        .fruit-rarity.prismatic { background: rgba(236, 72, 153, 0.15); color: var(--prismatic); }
+        .fruit-rarity.divine { background: rgba(6, 182, 212, 0.15); color: var(--divine); }
+        .fruit-rarity.exotic { background: rgba(249, 115, 22, 0.15); color: var(--exotic); }
+        .fruit-chance {
+            margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .chance-label { color: var(--text-muted); font-size: 0.75rem; }
+        .chance-value { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.85rem; }
+        .fruit-source {
+            margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .source-label { color: var(--text-muted); font-size: 0.75rem; }
+        .source-value { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.8rem; color: var(--text-secondary); }
+        .no-results {
+            text-align: center; color: var(--text-muted); padding: 3rem;
+            font-size: 1.1rem; display: none;
+        }
+        @media (max-width: 768px) {
+            .fruits-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">🌱 Seeds & Rarities</h2>
+                <p class="section-subtitle">All 39 seeds sorted by rarity with drop chances</p>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search seeds...">
+            </div>
+            <div class="rarity-tabs">
+                <button class="rarity-tab active" data-rarity="all">All</button>
+                <button class="rarity-tab" data-rarity="common">Common</button>
+                <button class="rarity-tab" data-rarity="uncommon">Uncommon</button>
+                <button class="rarity-tab" data-rarity="rare">Rare</button>
+                <button class="rarity-tab" data-rarity="epic">Epic</button>
+                <button class="rarity-tab" data-rarity="legendary">Legendary</button>
+                <button class="rarity-tab" data-rarity="secret">Secret</button>
+                <button class="rarity-tab" data-rarity="prismatic">Prismatic</button>
+                <button class="rarity-tab" data-rarity="divine">Divine</button>
+                <button class="rarity-tab" data-rarity="exotic">Exotic</button>
+            </div>
+            <div class="fruits-grid" id="fruitsGrid">
+                
+                <div class="fruit-card" data-rarity="common" data-name="carrot">
+                    <span class="fruit-icon">🥕</span>
+                    <div class="fruit-name">Carrot</div>
+                    <span class="fruit-rarity common">common</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--common)">1 in 3</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="common" data-name="beetroot">
+                    <span class="fruit-icon">🫒</span>
+                    <div class="fruit-name">Beetroot</div>
+                    <span class="fruit-rarity common">common</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--common)">1 in 3</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="common" data-name="pumpkin">
+                    <span class="fruit-icon">🎃</span>
+                    <div class="fruit-name">Pumpkin</div>
+                    <span class="fruit-rarity common">common</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--common)">1 in 4</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="uncommon" data-name="wheat">
+                    <span class="fruit-icon">🌾</span>
+                    <div class="fruit-name">Wheat</div>
+                    <span class="fruit-rarity uncommon">uncommon</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--uncommon)">1 in 32</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="uncommon" data-name="melon">
+                    <span class="fruit-icon">🍈</span>
+                    <div class="fruit-name">Melon</div>
+                    <span class="fruit-rarity uncommon">uncommon</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--uncommon)">1 in 32</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="uncommon" data-name="onion">
+                    <span class="fruit-icon">🧅</span>
+                    <div class="fruit-name">Onion</div>
+                    <span class="fruit-rarity uncommon">uncommon</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--uncommon)">1 in 51</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="uncommon" data-name="cantaloupe">
+                    <span class="fruit-icon">🍈</span>
+                    <div class="fruit-name">Cantaloupe</div>
+                    <span class="fruit-rarity uncommon">uncommon</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--uncommon)">1 in 64</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="uncommon" data-name="watermelon">
+                    <span class="fruit-icon">🍉</span>
+                    <div class="fruit-name">Watermelon</div>
+                    <span class="fruit-rarity uncommon">uncommon</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--uncommon)">1 in 85</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="rare" data-name="blueberry">
+                    <span class="fruit-icon">🫐</span>
+                    <div class="fruit-name">Blueberry</div>
+                    <span class="fruit-rarity rare">rare</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--rare)">1 in 128</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="rare" data-name="cabbage">
+                    <span class="fruit-icon">🥬</span>
+                    <div class="fruit-name">Cabbage</div>
+                    <span class="fruit-rarity rare">rare</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--rare)">1 in 256</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="rare" data-name="grape">
+                    <span class="fruit-icon">🍇</span>
+                    <div class="fruit-name">Grape</div>
+                    <span class="fruit-rarity rare">rare</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--rare)">1 in 427</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="rare" data-name="bamboo">
+                    <span class="fruit-icon">🎋</span>
+                    <div class="fruit-name">Bamboo</div>
+                    <span class="fruit-rarity rare">rare</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--rare)">1 in 640</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="rare" data-name="peach">
+                    <span class="fruit-icon">🍑</span>
+                    <div class="fruit-name">Peach</div>
+                    <span class="fruit-rarity rare">rare</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--rare)">1 in 512</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="epic" data-name="corn">
+                    <span class="fruit-icon">🌽</span>
+                    <div class="fruit-name">Corn</div>
+                    <span class="fruit-rarity epic">epic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--epic)">1 in 569</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="epic" data-name="plum">
+                    <span class="fruit-icon">🍑</span>
+                    <div class="fruit-name">Plum</div>
+                    <span class="fruit-rarity epic">epic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--epic)">1 in 854</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="epic" data-name="cauliflower">
+                    <span class="fruit-icon">🥦</span>
+                    <div class="fruit-name">Cauliflower</div>
+                    <span class="fruit-rarity epic">epic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--epic)">1 in 1281</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="epic" data-name="nectarine">
+                    <span class="fruit-icon">🍑</span>
+                    <div class="fruit-name">Nectarine</div>
+                    <span class="fruit-rarity epic">epic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--epic)">1 in 1423</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="epic" data-name="sunflower">
+                    <span class="fruit-icon">🌻</span>
+                    <div class="fruit-name">Sunflower</div>
+                    <span class="fruit-rarity epic">epic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--epic)">1 in 1423</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="epic" data-name="citrus">
+                    <span class="fruit-icon">🍊</span>
+                    <div class="fruit-name">Citrus</div>
+                    <span class="fruit-rarity epic">epic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--epic)">1 in 2561</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="legendary" data-name="spring onion">
+                    <span class="fruit-icon">🌿</span>
+                    <div class="fruit-name">Spring Onion</div>
+                    <span class="fruit-rarity legendary">legendary</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--legendary)">1 in 3202</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="legendary" data-name="mango">
+                    <span class="fruit-icon">🥭</span>
+                    <div class="fruit-name">Mango</div>
+                    <span class="fruit-rarity legendary">legendary</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--legendary)">Seed Collector</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Seed Collector</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="legendary" data-name="mushroom">
+                    <span class="fruit-icon">🍄</span>
+                    <div class="fruit-name">Mushroom</div>
+                    <span class="fruit-rarity legendary">legendary</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--legendary)">1 in 6404</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="legendary" data-name="banana">
+                    <span class="fruit-icon">🍌</span>
+                    <div class="fruit-name">Banana</div>
+                    <span class="fruit-rarity legendary">legendary</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--legendary)">1 in 8538</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="secret" data-name="strawberry">
+                    <span class="fruit-icon">🍓</span>
+                    <div class="fruit-name">Strawberry</div>
+                    <span class="fruit-rarity secret">secret</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--secret)">1 in 12807</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="secret" data-name="glowshroom">
+                    <span class="fruit-icon">🍄</span>
+                    <div class="fruit-name">Glowshroom</div>
+                    <span class="fruit-rarity secret">secret</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--secret)">5.00%</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="secret" data-name="beanstalk">
+                    <span class="fruit-icon">🌱</span>
+                    <div class="fruit-name">Beanstalk</div>
+                    <span class="fruit-rarity secret">secret</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--secret)">1 in 25614</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="secret" data-name="tomato">
+                    <span class="fruit-icon">🍅</span>
+                    <div class="fruit-name">Tomato</div>
+                    <span class="fruit-rarity secret">secret</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--secret)">1 in 51229</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="secret" data-name="starfruit">
+                    <span class="fruit-icon">⭐</span>
+                    <div class="fruit-name">Starfruit</div>
+                    <span class="fruit-rarity secret">secret</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--secret)">5.00%</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="prismatic" data-name="apple">
+                    <span class="fruit-icon">🍎</span>
+                    <div class="fruit-name">Apple</div>
+                    <span class="fruit-rarity prismatic">prismatic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--prismatic)">1 in 128072</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="prismatic" data-name="cherry blossom">
+                    <span class="fruit-icon">🌸</span>
+                    <div class="fruit-name">Cherry Blossom</div>
+                    <span class="fruit-rarity prismatic">prismatic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--prismatic)">1 in 256144</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="prismatic" data-name="pineapple">
+                    <span class="fruit-icon">🍍</span>
+                    <div class="fruit-name">Pineapple</div>
+                    <span class="fruit-rarity prismatic">prismatic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--prismatic)">25.00%</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Seed Packs</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="divine" data-name="diamond blossom">
+                    <span class="fruit-icon">💎</span>
+                    <div class="fruit-name">Diamond Blossom</div>
+                    <span class="fruit-rarity divine">divine</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--divine)">Seed Collector</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Seed Collector</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="divine" data-name="pomegranate">
+                    <span class="fruit-icon">🫒</span>
+                    <div class="fruit-name">Pomegranate</div>
+                    <span class="fruit-rarity divine">divine</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--divine)">15.00%</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Seed Packs</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="divine" data-name="golden apple">
+                    <span class="fruit-icon">🍏</span>
+                    <div class="fruit-name">Golden Apple</div>
+                    <span class="fruit-rarity divine">divine</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--divine)">1 in 426907</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="exotic" data-name="kiwi">
+                    <span class="fruit-icon">🥝</span>
+                    <div class="fruit-name">Kiwi</div>
+                    <span class="fruit-rarity exotic">exotic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--exotic)">9.00%</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Seed Packs</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="exotic" data-name="moonflower">
+                    <span class="fruit-icon">🌙</span>
+                    <div class="fruit-name">Moonflower</div>
+                    <span class="fruit-rarity exotic">exotic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--exotic)">1 in 731840</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="exotic" data-name="pepper">
+                    <span class="fruit-icon">🌶️</span>
+                    <div class="fruit-name">Pepper</div>
+                    <span class="fruit-rarity exotic">exotic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--exotic)">1 in 1423023</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="exotic" data-name="void fruit">
+                    <span class="fruit-icon">🌀</span>
+                    <div class="fruit-name">Void Fruit</div>
+                    <span class="fruit-rarity exotic">exotic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--exotic)">1 in 25614414</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Rolling</span>
+                    </div>
+                </div>
+                <div class="fruit-card" data-rarity="exotic" data-name="dragonfruit">
+                    <span class="fruit-icon">🐉</span>
+                    <div class="fruit-name">Dragonfruit</div>
+                    <span class="fruit-rarity exotic">exotic</span>
+                    <div class="fruit-chance">
+                        <span class="chance-label">Chance</span>
+                        <span class="chance-value" style="color: var(--exotic)">1.00%</span>
+                    </div>
+                    <div class="fruit-source">
+                        <span class="source-label">Source</span>
+                        <span class="source-value">Seed Packs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="no-results" id="noResults">No seeds found matching your search.</div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (10 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(p);
+        }
+    </script>
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <script>
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) backToTop.classList.add('visible');
+            else backToTop.classList.remove('visible');
+        });
+    </script>
+
+    <script>
+        // Rarity filter
+        document.querySelectorAll('.rarity-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.rarity-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const rarity = tab.dataset.rarity;
+                const search = document.getElementById('searchInput').value.toLowerCase();
+                filterCards(rarity, search);
+            });
+        });
+
+        // Search filter
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const search = e.target.value.toLowerCase();
+            const activeTab = document.querySelector('.rarity-tab.active');
+            const rarity = activeTab ? activeTab.dataset.rarity : 'all';
+            filterCards(rarity, search);
+        });
+
+        function filterCards(rarity, search) {
+            let visible = 0;
+            document.querySelectorAll('.fruit-card').forEach(card => {
+                const cardRarity = card.dataset.rarity;
+                const cardName = card.dataset.name;
+                const matchesRarity = rarity === 'all' || cardRarity === rarity;
+                const matchesSearch = cardName.includes(search);
+                if (matchesRarity && matchesSearch) {
+                    card.style.display = 'block';
+                    visible++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+        }
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>
