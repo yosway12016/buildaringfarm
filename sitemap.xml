@@ -1,58 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <url>
-    <loc>https://buildaring.xyz/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
 
-  <url>
-    <loc>https://buildaring.xyz/fruits.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+<url>
+  <loc>https://buildaring.xyz/</loc>
+  <lastmod>2026-05-17T15:40:01+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/fruits.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/mutations.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/events.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/rings.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/codes.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/progression.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/faq.html</loc>
+  <lastmod>2026-05-17T15:30:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://buildaring.xyz/calculator.html</loc>
+  <lastmod>2026-05-17T15:17:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 
-  <url>
-    <loc>https://buildaring.xyz/mutations.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://buildaring.xyz/events.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://buildaring.xyz/rings.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://buildaring.xyz/codes.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://buildaring.xyz/calculator.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://buildaring.xyz/faq.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://buildaring.xyz/progression.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
 </urlset>
